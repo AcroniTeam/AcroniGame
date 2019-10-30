@@ -74,7 +74,9 @@ public class SlotController : MonoBehaviour
             case "Míssil": Instantiate(pineCone, transform.position + offset, Quaternion.identity);
                 break;
         }
+        FirebaseMethods.firebaseMethods.IncrementQttItems(itemName);
         item_quantity.text = Player.getInstance().GetPlayerInventory().DecreseQuantityFromItem(itemName).ToString();
+
     }
 
     public void SetEnabled(bool enabled) {

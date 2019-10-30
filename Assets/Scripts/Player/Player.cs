@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
     public void TeleportToSpawn()
     {
         transform.position = spawns[index_spawn];
+        FirebaseMethods.firebaseMethods.getFireBaseMethodsInstance().IncrementQttPlayed("Fase Aérea");
     }
 
     public void ResetSpawn()

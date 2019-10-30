@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "965653840253",
+    "firebase_url": "https://analytics-7777.firebaseio.com",
+    "project_id": "analytics-7777",
+    "storage_bucket": "analytics-7777.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:965653840253:android:f8e631dc8fbd86328acc14",
+        "android_client_info": {
+          "package_name": "com.acroni.JogrAda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "965653840253-0t4hc057qe6o87ca8d6famt4enumiapo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACcHQxGjKbMpO5rfjY8p4n50VWOfK61b4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "965653840253-0t4hc057qe6o87ca8d6famt4enumiapo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
