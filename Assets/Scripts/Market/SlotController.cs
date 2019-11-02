@@ -1,7 +1,6 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
 
 public class SlotController : MonoBehaviour
 {
@@ -16,16 +15,10 @@ public class SlotController : MonoBehaviour
     string slot_item;
     bool isEmpty = true;
     Vector3 startPoint;
-    Vector3 offset = new Vector3(0.43f,0.43f);
+    //Vector3 offset = new Vector3(0.43f,0.43f);
     bool isEnabled = true;
     [HideInInspector]
     public InventoryItem item_reference;
-
-    //ITEMS
-    public GameObject pineCone;
-    public GameObject bomba;
-    public GameObject trampoline;
-    public GameObject timeDecelerator;
 
     #region SlotController Methods
 
@@ -65,18 +58,15 @@ public class SlotController : MonoBehaviour
     {
         switch(itemName)
         {
-            case "Bomba": Instantiate(bomba, transform.position + offset, Quaternion.identity);
+            case "Bloco Especial": SpecialBlockTilemap.GetSpecialBlockTilemap().GetTilemap().SetTile(new Vector3Int(Mathf.FloorToInt(transform.position.x),Mathf.FloorToInt(transform.position.y),0), ItemFactory.GetFactory().ProduceSpecialBlock());
+                SpecialBlockTilemap.GetSpecialBlockTilemap().GetTilemap().RefreshAllTiles();
                 break;
-            case "Trampolim": Instantiate(trampoline, transform.position + offset, Quaternion.identity);
-                break;
-            case "Controlador Temporal": Instantiate(timeDecelerator, transform.position + offset, Quaternion.identity);
-                break;
-            case "Míssil": Instantiate(pineCone, transform.position + offset, Quaternion.identity);
+            default:
+                Instantiate(ItemFactory.GetFactory().ProduceItem(itemName), transform.position /*+ offset */, Quaternion.identity);
                 break;
         }
         FirebaseMethods.firebaseMethods.IncrementQttItems(itemName);
         item_quantity.text = Player.getInstance().GetPlayerInventory().DecreseQuantityFromItem(itemName).ToString();
-
     }
 
     public void SetEnabled(bool enabled) {
@@ -85,19 +75,20 @@ public class SlotController : MonoBehaviour
     #endregion
 
     #region MonoBehaviour Methods
-
     private void Start()
     {
         box = GetComponent<BoxCollider2D>();
-        if (slotType.Equals(SlotType.CURRENT))
-            startPoint = rect.position;
+        if (!slotType.Equals(SlotType.CURRENT))
+            return;
+
+        startPoint = rect.position;
     }
 
     bool isMoving;
     private void Update()
     {
         
-        if (!slotType.Equals(SlotType.CURRENT) || !isEnabled)
+        if (!isEnabled)
             return;
 
         if (item_quantity.text.Equals("0"))
@@ -106,7 +97,7 @@ public class SlotController : MonoBehaviour
             return;
         }
 
-        if (Input.touchCount == 0)
+        if (Input.touchCount == 0 || (Input.touchCount > 1 && Input.GetTouch(1).phase.Equals(TouchPhase.Ended)))
         {
             if (isMoving)
             {
@@ -119,7 +110,7 @@ public class SlotController : MonoBehaviour
             return;
         }
 
-        Vector3 position = Input.GetTouch(0).position;
+        Vector3 position = Input.touchCount == 2? Input.GetTouch(1).position : Input.GetTouch(0).position;
         position = Camera.main.ScreenToWorldPoint(position);
 
         if (box.OverlapPoint(position) || isMoving)

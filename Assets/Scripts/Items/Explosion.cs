@@ -7,8 +7,8 @@ public class Explosion : MonoBehaviour
     public GameObject bomba;
     public float radius;
     public float power;
-    public Tilemap special_blocks;
     public TileBase explosionAnim;
+
     public void OnWickDestroy()
     {
         bomba.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
@@ -35,9 +35,12 @@ public class Explosion : MonoBehaviour
                 }
                 catch (System.Exception) { }
             }
-            
+
+            Tilemap special_blocks = SpecialBlockTilemap.GetSpecialBlockTilemap().GetTilemap();
+
             foreach(Vector3 position in special_blocks.cellBounds.allPositionsWithin)
             {
+                Debug.Log("X: " + position.x + " Y:" + position.y);
                 if (Mathf.Abs(Vector3.Distance(explosionPos, position)) <= radius)
                 {
                     var tilePos = special_blocks.WorldToCell(position);

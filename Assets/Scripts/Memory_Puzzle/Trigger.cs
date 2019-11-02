@@ -10,6 +10,8 @@ public class Trigger : MonoBehaviour
             return;
 
         Player.getInstance().TeleportToSpawn();
-        FindObjectOfType<PuzzleTilemap>().Clear();
+
+        if(OnStartScene.sceneType.Equals(SceneType.MEMORY_PUZZLE))
+            FindObjectOfType<PuzzleTilemap>().Clear();
     }
 }
