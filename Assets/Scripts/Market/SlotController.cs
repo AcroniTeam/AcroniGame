@@ -76,7 +76,6 @@ public class SlotController : MonoBehaviour
         }
         FirebaseMethods.firebaseMethods.IncrementQttItems(itemName);
         item_quantity.text = Player.getInstance().GetPlayerInventory().DecreseQuantityFromItem(itemName).ToString();
-
     }
 
     public void SetEnabled(bool enabled) {

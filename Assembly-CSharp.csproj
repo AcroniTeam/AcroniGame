@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{13E5A3EC-1204-E498-3619-8D6BCFEEE388}</ProjectGuid>
+    <ProjectGuid>{8AFAFA52-D95C-3522-3D9E-5F1B26831AF8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -70,6 +70,7 @@
      <Compile Include="Assets\OnStartScene.cs" />
      <Compile Include="Assets\Scripts\Analytics-Firebase\CountNumberDeaths.cs" />
      <Compile Include="Assets\Scripts\Analytics-Firebase\FirebaseMethods.cs" />
+     <Compile Include="Assets\Scripts\Analytics-Firebase\LoginManager.cs" />
      <Compile Include="Assets\Scripts\Background\Parallax.cs" />
      <Compile Include="Assets\Scripts\Background\SetSpawn.cs" />
      <Compile Include="Assets\Scripts\Background\WalkingCloud.cs" />
@@ -123,25 +124,25 @@
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
  <Reference Include="Cinemachine">
- <HintPath>C:/Users/Gabriel/Documents/GitHub/AcroniMobile/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Desktop/ATUALIZADO 2019 MOBILE ESSE/AcroniGame-master/AcroniGame-master/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/Gabriel/Documents/GitHub/AcroniMobile/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Desktop/ATUALIZADO 2019 MOBILE ESSE/AcroniGame-master/AcroniGame-master/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/Gabriel/Documents/GitHub/AcroniMobile/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Desktop/ATUALIZADO 2019 MOBILE ESSE/AcroniGame-master/AcroniGame-master/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>C:/Users/Gabriel/Documents/GitHub/AcroniMobile/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Desktop/ATUALIZADO 2019 MOBILE ESSE/AcroniGame-master/AcroniGame-master/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="com.unity.cinemachine.editor">
- <HintPath>C:/Users/Gabriel/Documents/GitHub/AcroniMobile/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Desktop/ATUALIZADO 2019 MOBILE ESSE/AcroniGame-master/AcroniGame-master/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/Gabriel/Documents/GitHub/AcroniMobile/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Desktop/ATUALIZADO 2019 MOBILE ESSE/AcroniGame-master/AcroniGame-master/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>C:/Users/Gabriel/Documents/GitHub/AcroniMobile/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Desktop/ATUALIZADO 2019 MOBILE ESSE/AcroniGame-master/AcroniGame-master/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Unity/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -342,43 +343,43 @@
  <HintPath>C:/Unity/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.Analytics">
- <HintPath>C:/Users/Gabriel/Documents/GitHub/AcroniMobile/Assets/Firebase/Plugins/Firebase.Analytics.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Desktop/ATUALIZADO 2019 MOBILE ESSE/AcroniGame-master/AcroniGame-master/Assets/Firebase/Plugins/Firebase.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.App">
- <HintPath>C:/Users/Gabriel/Documents/GitHub/AcroniMobile/Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Desktop/ATUALIZADO 2019 MOBILE ESSE/AcroniGame-master/AcroniGame-master/Assets/Firebase/Plugins/Firebase.App.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.Auth">
- <HintPath>C:/Users/Gabriel/Documents/GitHub/AcroniMobile/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Desktop/ATUALIZADO 2019 MOBILE ESSE/AcroniGame-master/AcroniGame-master/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.Database">
- <HintPath>C:/Users/Gabriel/Documents/GitHub/AcroniMobile/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Desktop/ATUALIZADO 2019 MOBILE ESSE/AcroniGame-master/AcroniGame-master/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.Platform">
- <HintPath>C:/Users/Gabriel/Documents/GitHub/AcroniMobile/Assets/Firebase/Plugins/Firebase.Platform.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Desktop/ATUALIZADO 2019 MOBILE ESSE/AcroniGame-master/AcroniGame-master/Assets/Firebase/Plugins/Firebase.Platform.dll</HintPath>
  </Reference>
  <Reference Include="Firebase.TaskExtension">
- <HintPath>C:/Users/Gabriel/Documents/GitHub/AcroniMobile/Assets/Firebase/Plugins/Firebase.TaskExtension.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Desktop/ATUALIZADO 2019 MOBILE ESSE/AcroniGame-master/AcroniGame-master/Assets/Firebase/Plugins/Firebase.TaskExtension.dll</HintPath>
  </Reference>
  <Reference Include="Google.MiniJson">
- <HintPath>C:/Users/Gabriel/Documents/GitHub/AcroniMobile/Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Desktop/ATUALIZADO 2019 MOBILE ESSE/AcroniGame-master/AcroniGame-master/Assets/Firebase/Plugins/Google.MiniJson.dll</HintPath>
  </Reference>
  <Reference Include="Google.Sharpen">
- <HintPath>C:/Users/Gabriel/Documents/GitHub/AcroniMobile/Assets/Firebase/Plugins/Google.Sharpen.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Desktop/ATUALIZADO 2019 MOBILE ESSE/AcroniGame-master/AcroniGame-master/Assets/Firebase/Plugins/Google.Sharpen.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Compat">
- <HintPath>C:/Users/Gabriel/Documents/GitHub/AcroniMobile/Assets/Parse/Plugins/dotNet45/Unity.Compat.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Desktop/ATUALIZADO 2019 MOBILE ESSE/AcroniGame-master/AcroniGame-master/Assets/Parse/Plugins/dotNet45/Unity.Compat.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Tasks">
- <HintPath>C:/Users/Gabriel/Documents/GitHub/AcroniMobile/Assets/Parse/Plugins/dotNet45/Unity.Tasks.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Desktop/ATUALIZADO 2019 MOBILE ESSE/AcroniGame-master/AcroniGame-master/Assets/Parse/Plugins/dotNet45/Unity.Tasks.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Editor">
- <HintPath>C:/Users/Gabriel/Documents/GitHub/AcroniMobile/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Desktop/ATUALIZADO 2019 MOBILE ESSE/AcroniGame-master/AcroniGame-master/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.StandardEvents">
- <HintPath>C:/Users/Gabriel/Documents/GitHub/AcroniMobile/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Desktop/ATUALIZADO 2019 MOBILE ESSE/AcroniGame-master/AcroniGame-master/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
- <HintPath>C:/Users/Gabriel/Documents/GitHub/AcroniMobile/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+ <HintPath>C:/Users/Gabriel/Desktop/ATUALIZADO 2019 MOBILE ESSE/AcroniGame-master/AcroniGame-master/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Unity/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
