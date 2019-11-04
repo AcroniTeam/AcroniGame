@@ -1,5 +1,4 @@
 sceneSetups:
 - path: Assets/Scenes/Login.unity
-- path: Assets/Scenes/bomba-phases.unity
   isLoaded: 1
   isActive: 1

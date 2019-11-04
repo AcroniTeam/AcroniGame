@@ -346,6 +346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MusicName: bgm-ada_theme
   welcome_username: {fileID: 1722015133}
+  SceneType: 0
 --- !u!4 &138899648
 Transform:
   m_ObjectHideFlags: 0
@@ -486,7 +487,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -271, y: 93}
+  m_AnchoredPosition: {x: -228, y: 67}
   m_SizeDelta: {x: 247.8, y: 82.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &228579321
@@ -2359,7 +2360,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -234, y: 140}
+  m_AnchoredPosition: {x: -191.00003, y: 114.00001}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1722015133
