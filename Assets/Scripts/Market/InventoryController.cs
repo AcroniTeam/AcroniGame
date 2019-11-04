@@ -21,6 +21,7 @@ public class InventoryController : MonoBehaviour
             return;
         }else if (next_slot.IsEmpty() || next_slot.Equals(item))
         {
+            InventoryPopUpController.GetPopUpController().Release();
             next_slot.Fill(item);
             return;
         }else if (previous_slot.IsEmpty() || previous_slot.Equals(item))
@@ -37,6 +38,8 @@ public class InventoryController : MonoBehaviour
             if (!next_slot.IsEmpty())
             {
                 current_slot.Fill(next_slot.item_reference);
+//                Debug.Log("Não tá mais vazio aqui n");
+                InventoryPopUpController.GetPopUpController().Release();
 
                 if(!previous_slot.IsEmpty())
                 {
@@ -44,14 +47,21 @@ public class InventoryController : MonoBehaviour
                     
                     if (Player.getInstance().GetPlayerInventory().HasItemAt(3))
                     {
+                        previous_slot.EnableUI();
                         previous_slot.Fill(Player.getInstance().GetPlayerInventory().GetItemAt(3));
                         Player.getInstance().GetPlayerInventory().RemodelList();
                     }
                     else
+                    {
                         previous_slot.Clear();
+                        previous_slot.DisableUI();
+                    }   
                 }
                 else
+                {
                     next_slot.Clear();
+                    InventoryPopUpController.GetPopUpController().Block();
+                }
             }
             else
                 current_slot.Clear();
@@ -61,6 +71,11 @@ public class InventoryController : MonoBehaviour
     public static InventoryController GetInventoryController()
     {
         return inventoryController;
+    }
+
+    public BoxCollider2D GetCollider()
+    {
+        return GetComponent<BoxCollider2D>();
     }
 
     Vector3 lastPosition = new Vector3(0,0,0);

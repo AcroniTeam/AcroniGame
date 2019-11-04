@@ -54,6 +54,16 @@ public class SlotController : MonoBehaviour
         isEmpty = true;
     }
 
+    public void EnableUI()
+    {
+        enabled = true;
+    }
+
+    public void DisableUI()
+    {
+        enabled = false;
+    }
+
     void SummonItem(string itemName)
     {
         switch(itemName)
@@ -101,9 +111,12 @@ public class SlotController : MonoBehaviour
         {
             if (isMoving)
             {
-                isMoving = false;
-                SummonItem(slot_item);
-                rect.anchoredPosition = startPoint;
+                //if (InventoryController.GetInventoryController().GetCollider().OverlapCollider(new ContactFilter2D().NoFilter(), new Collider2D[] { box }) != 0)
+                //{
+                    isMoving = false;
+                    SummonItem(slot_item);
+                    rect.anchoredPosition = startPoint;
+                //}
             }
 
             isMoving = false;
@@ -117,7 +130,6 @@ public class SlotController : MonoBehaviour
         {
             isMoving = true;
             Vector3 Position = new Vector3(position.x, position.y, 0);
-            //Vector3Int intPosition = new Vector3Int(Mathf.FloorToInt(position.x), Mathf.FloorToInt(position.y), 0);
             rect.position = Position;
         }
     }
