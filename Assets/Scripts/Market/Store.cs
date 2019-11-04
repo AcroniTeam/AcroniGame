@@ -36,7 +36,10 @@ public class Store : MonoBehaviour
     public void Open()
     {
         isOpen = true;
-        CountdownTimer.getInstance().StopTimer();
+        try
+        {
+            CountdownTimer.getInstance().StopTimer();
+        }catch {}
         Player.getInstance().GetPlayerMovement().DisableMovement();
         animator.SetBool("isOpen", true);
     }
@@ -44,8 +47,11 @@ public class Store : MonoBehaviour
     public void Close()
     {
         isOpen = false;
-        if (!GameManager.GetInstance().IsLevelOver())
-            CountdownTimer.getInstance().StartTimer();
+        try
+        {
+            if (!GameManager.GetInstance().IsLevelOver())
+                CountdownTimer.getInstance().StartTimer();
+        }catch {}
         Player.getInstance().GetPlayerMovement().EnableMovement();
         animator.SetBool("isOpen", false);
     }

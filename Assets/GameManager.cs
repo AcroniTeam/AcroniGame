@@ -45,6 +45,6 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         AudioManager.GetInstance().Stop("bgm-ada_theme");
-        LoadScene("nova_aerea");
+        LoadScene("bomba-phases");
     }
 }

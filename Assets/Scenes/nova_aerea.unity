@@ -923,6 +923,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6decb0bfc65eed847b0f895b8ed006e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &446361043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 446361044}
+  m_Layer: 0
+  m_Name: initial-Spawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &446361044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446361043}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.63, y: -0.11, z: -0.09375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &464337565 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8829413700253361220, guid: b7fd39aed73d1ed4784e58c5a15e92cc,
@@ -1088,9 +1118,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawns:
-  - {x: -5.01, y: -1, z: 0}
-  - {x: 17.04, y: -0.61, z: 0}
-  - {x: 51.84, y: 1.31, z: 0}
+  - {fileID: 446361043}
+  - {fileID: 2121392318}
+  - {fileID: 1068469319}
 --- !u!4 &510736127 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5785359161049287087, guid: 59b07c7b7b94fe9499cbf0749a004acf,
@@ -2082,6 +2112,7 @@ GameObject:
   - component: {fileID: 567795534}
   - component: {fileID: 567795533}
   - component: {fileID: 567795532}
+  - component: {fileID: 567795537}
   m_Layer: 0
   m_Name: SpecialBlocks
   m_TagString: SpecialBlocks
@@ -2285,6 +2316,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &567795537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567795530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c1c479f0df5d4a459e7a7efc3b7c9eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &724038086
 GameObject:
   m_ObjectHideFlags: 0
@@ -3836,6 +3879,17 @@ PrefabInstance:
       propertyPath: timeDecelerator
       value: 
       objectReference: {fileID: 7301619044393143192, guid: 51fe4dc49143d3f40bd93a6a1a17f7d1,
+        type: 3}
+    - target: {fileID: 7098155082611919727, guid: b7fd39aed73d1ed4784e58c5a15e92cc,
+        type: 3}
+      propertyPath: tilemap
+      value: 
+      objectReference: {fileID: 567795536}
+    - target: {fileID: 7098155082611919727, guid: b7fd39aed73d1ed4784e58c5a15e92cc,
+        type: 3}
+      propertyPath: block
+      value: 
+      objectReference: {fileID: 21300000, guid: 5a1716f8af2022a41a9b3bba055ddb07,
         type: 3}
     - target: {fileID: 1085962276766965394, guid: b7fd39aed73d1ed4784e58c5a15e92cc,
         type: 3}

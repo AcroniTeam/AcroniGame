@@ -34,12 +34,12 @@ public class Player : MonoBehaviour
         return player_currency;
     }
 
-    public Vector3[] spawns;
+    public GameObject[] spawns;
     private int index_spawn = 0;
 
     public void TeleportToSpawn()
     {
-        transform.position = spawns[index_spawn];
+        transform.position = spawns[index_spawn].transform.position;
         FirebaseMethods.firebaseMethods.getFireBaseMethodsInstance().IncrementQttPlayed("Fase Aérea");
     }
 
