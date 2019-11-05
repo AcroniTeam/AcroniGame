@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\Canvas\MainMenuButton.cs" />
     <Compile Include="Assets\Scripts\Canvas\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\Canvas\MenuController.cs" />
+    <Compile Include="Assets\Scripts\Canvas\SwitchController.cs" />
     <Compile Include="Assets\Scripts\Items\Bomba.cs" />
     <Compile Include="Assets\Scripts\Items\ChangeAngle.cs" />
     <Compile Include="Assets\Scripts\Items\Decelerator.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Assets\Scripts\Items\SpecialBlockTilemap.cs" />
     <Compile Include="Assets\Scripts\Items\trampolineJump.cs" />
     <Compile Include="Assets\Scripts\Managers\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\IOManager.cs" />
     <Compile Include="Assets\Scripts\Managers\Sound.cs" />
     <Compile Include="Assets\Scripts\Market\Inventory.cs" />
     <Compile Include="Assets\Scripts\Market\InventoryController.cs" />
@@ -110,8 +112,8 @@
     <Compile Include="Assets\Scripts\Player\CharacterController2D.cs" />
     <Compile Include="Assets\Scripts\Player\Movimento.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerData.cs" />
     <Compile Include="Assets\Scripts\Player\TriggerGround.cs" />
-    <Compile Include="Assets\SwitchController.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

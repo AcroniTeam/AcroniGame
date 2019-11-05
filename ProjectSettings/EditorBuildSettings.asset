@@ -9,12 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/cena_aereo.unity
     guid: 11e7563bfa991b545bc2cecd28050485
   - enabled: 1
-    path: Assets/Scenes/nova_aerea.unity
-    guid: d0ec6e91e8145ef4bbf46a7f42338b72
-  - enabled: 1
     path: Assets/Scenes/Menu_principal.unity
     guid: f65a2682ebd2b194cb0b8b39e32e4802
   - enabled: 1
+    path: Assets/Scenes/nova_aerea.unity
+    guid: d0ec6e91e8145ef4bbf46a7f42338b72
+  - enabled: 1
     path: Assets/Scenes/bomba-phases.unity
     guid: 11a89d4a9008601499766706553671a7
+  - enabled: 1
+    path: Assets/Scenes/Final.unity
+    guid: 7850db662523f214e8acbbe3c7fc3b8d
   m_configObjects: {}

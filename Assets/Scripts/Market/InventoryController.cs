@@ -12,6 +12,7 @@ public class InventoryController : MonoBehaviour
     public SlotController previous_slot;
     public SlotController current_slot;
     public SlotController next_slot;
+    public SlotController next_controller_copy;
 
     public void AddItem(InventoryItem item)
     {
@@ -21,11 +22,13 @@ public class InventoryController : MonoBehaviour
             return;
         }else if (next_slot.IsEmpty() || next_slot.Equals(item))
         {
-            InventoryPopUpController.GetPopUpController().Release();
+            InventoryPopUpController.GetPopUpController().Release(0);
             next_slot.Fill(item);
+            next_controller_copy.Fill(item);
             return;
         }else if (previous_slot.IsEmpty() || previous_slot.Equals(item))
         {
+            InventoryPopUpController.GetPopUpController().Release(1);
             previous_slot.Fill(item);
             return;
         }
@@ -38,8 +41,6 @@ public class InventoryController : MonoBehaviour
             if (!next_slot.IsEmpty())
             {
                 current_slot.Fill(next_slot.item_reference);
-//                Debug.Log("Não tá mais vazio aqui n");
-                InventoryPopUpController.GetPopUpController().Release();
 
                 if(!previous_slot.IsEmpty())
                 {
@@ -47,19 +48,20 @@ public class InventoryController : MonoBehaviour
                     
                     if (Player.getInstance().GetPlayerInventory().HasItemAt(3))
                     {
-                        previous_slot.EnableUI();
                         previous_slot.Fill(Player.getInstance().GetPlayerInventory().GetItemAt(3));
                         Player.getInstance().GetPlayerInventory().RemodelList();
                     }
                     else
                     {
+                        next_controller_copy.Fill(previous_slot.item_reference);
                         previous_slot.Clear();
-                        previous_slot.DisableUI();
+                        InventoryPopUpController.GetPopUpController().BlockInventory(1);
                     }   
                 }
                 else
                 {
                     next_slot.Clear();
+                    next_controller_copy.Clear();
                     InventoryPopUpController.GetPopUpController().Block();
                 }
             }
@@ -78,24 +80,24 @@ public class InventoryController : MonoBehaviour
         return GetComponent<BoxCollider2D>();
     }
 
-    Vector3 lastPosition = new Vector3(0,0,0);
-    private void Update()
-    {
-        if (!interactible)
-            return;
+    ////vector3 lastposition = new vector3(0,0,0);
+    ////private void update()
+    ////{
+    ////    if (!interactible)
+    ////        return;
 
-        if (Input.touchCount == 0)
-            return;
+    ////    if (input.touchcount == 0)
+    ////        return;
 
-        Vector3 inputPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-        if (GetComponent<BoxCollider2D>().OverlapPoint(inputPosition))
-        {
-            //Debug.Log(lastPosition.x > inputPosition.x);
+    ////    vector3 inputposition = camera.main.screentoworldpoint(input.gettouch(0).position);
+    ////    if (getcomponent<boxcollider2d>().overlappoint(inputposition))
+    ////    {
+    ////        //debug.log(lastposition.x > inputposition.x);
 
-            if (Input.GetTouch(0).phase.Equals(TouchPhase.Moved))
-                lastPosition = inputPosition;
-        }
-    }
+    ////        if (input.gettouch(0).phase.equals(touchphase.moved))
+    ////            lastposition = inputposition;
+    ////    }
+    ////}
 
     bool interactible;
     public void SetInteractible(bool interacbility)

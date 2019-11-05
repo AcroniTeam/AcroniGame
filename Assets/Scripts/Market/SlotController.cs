@@ -54,16 +54,6 @@ public class SlotController : MonoBehaviour
         isEmpty = true;
     }
 
-    public void EnableUI()
-    {
-        enabled = true;
-    }
-
-    public void DisableUI()
-    {
-        enabled = false;
-    }
-
     void SummonItem(string itemName)
     {
         switch(itemName)

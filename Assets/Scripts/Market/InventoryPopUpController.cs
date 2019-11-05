@@ -6,7 +6,8 @@ public class InventoryPopUpController : MonoBehaviour
     private static InventoryPopUpController instance;
 
     public Button openButton;
-    public SwitchController popUp;
+    public SwitchController popUp1item;
+    public SwitchController popUp2item;
 
     private void Start()
     {
@@ -20,19 +21,35 @@ public class InventoryPopUpController : MonoBehaviour
 
     public void OpenOrClose()
     {
-
+        if (disponibleSlots[1])
+        {
+            if (!popUp2item.IsOpen())
+                popUp2item.Open();
+            else
+                popUp2item.Close();
+        }else if (disponibleSlots[0])
+        {
+            if (!popUp1item.IsOpen())
+                popUp1item.Open();
+            else
+                popUp1item.Close();
+        }
     }
 
     public void Block()
     {
-        popUp.Disable();
-        openButton.enabled = false;
+        openButton.gameObject.SetActive(false);
     }
 
-    public void Release()
+    bool[] disponibleSlots = new bool[] { false,false };
+    public void Release(int indicator)
     {
-        Debug.Log("Liberei aqui");
-        popUp.Enable();
-        openButton.enabled = true;
+        disponibleSlots[indicator] = true;
+        openButton.gameObject.SetActive(true);
+    }
+
+    public void BlockInventory(int indicator)
+    {
+        disponibleSlots[indicator] = false;
     }
 }

@@ -56,7 +56,11 @@ public class Player : MonoBehaviour
         {
             index_spawn++;
             if (index_spawn == spawns.Length - 1)
+            {
                 CountdownTimer.getInstance().StopTimer();
+                GameManager.GetInstance().BuildNextScene();
+                IOManager.SaveProgress();
+            }
         }
         else
             Debug.LogError("Tá faltando spawns na lista do player!");

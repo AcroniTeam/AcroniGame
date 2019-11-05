@@ -1125,6 +1125,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eda11db9f1dbea459dc891c8d65bf07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minimunDiscount: 3
+  maximunDiscount: 17
+  LevelQuantity: 2
+  CompletedLevels: 0
 --- !u!4 &937495027
 Transform:
   m_ObjectHideFlags: 0
@@ -1281,6 +1285,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eda11db9f1dbea459dc891c8d65bf07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minimunDiscount: 3
+  maximunDiscount: 17
+  LevelQuantity: 0
+  CompletedLevels: 0
 --- !u!1 &998324984
 GameObject:
   m_ObjectHideFlags: 0

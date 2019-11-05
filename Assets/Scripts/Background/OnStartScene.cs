@@ -28,10 +28,14 @@ public class OnStartScene : MonoBehaviour
             InventoryPopUpController.GetPopUpController().Block();
         }
         catch { }
-        
 
-        if (FirebaseMethods.firebaseMethods.getFirebaseUser().Email != string.Empty)
-            welcome_username.text = "Welcome, " + FirebaseMethods.firebaseMethods.getFirebaseUser().Email;
+        try
+        {
+            if (FirebaseMethods.firebaseMethods.getFirebaseUser().Email != string.Empty)
+                welcome_username.text = "Welcome, " + FirebaseMethods.firebaseMethods.getFirebaseUser().Email;
+        }
+        catch { }
+        
         //provisório tbm
     }
 }

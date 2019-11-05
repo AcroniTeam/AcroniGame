@@ -31,7 +31,10 @@ public class CountdownTimer : MonoBehaviour
     public void StopTimer()
     {
         isRunning = false;
-        FindObjectOfType<PuzzleTilemap>().Clear();
+        try
+        {
+            FindObjectOfType<PuzzleTilemap>().Clear();
+        }catch { }
     }
 
     public void StartTimer()
