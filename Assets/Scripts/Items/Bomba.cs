@@ -5,19 +5,18 @@ using UnityEngine;
 public class Bomba : MonoBehaviour
 {
     public Animator bombExplosion;
-    // Start is called before the first frame update
-    void Start()
-    {
+    
+    public bool waitResponse = false;
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-           
-    }
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (!waitResponse)
+            bombExplosion.SetBool("Touched", true);
+    }
+
+    public void Release()
+    {
+        waitResponse = false;
         bombExplosion.SetBool("Touched", true);
     }
 }

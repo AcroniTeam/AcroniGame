@@ -18,7 +18,9 @@ public class OnStartScene : MonoBehaviour
             return;
         }
 
-        if(MusicName == null)
+        IOManager.SaveProgress();
+
+        if (MusicName == null)
             Debug.LogError("Faltando o nome da música na cena!");
         else
             AudioManager.GetInstance().Play(MusicName);
@@ -35,6 +37,7 @@ public class OnStartScene : MonoBehaviour
                 welcome_username.text = "Welcome, " + FirebaseMethods.firebaseMethods.getFirebaseUser().Email;
         }
         catch { }
+        
         
         //provisório tbm
     }

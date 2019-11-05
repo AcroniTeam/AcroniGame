@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2310876024273058584}
+  - component: {fileID: 5455247505733001911}
+  - component: {fileID: 5455247505733001904}
   - component: {fileID: 5455247505733002058}
   - component: {fileID: 5455247505733001909}
   - component: {fileID: 5455247505733001908}
   - component: {fileID: 5455247505733001910}
-  - component: {fileID: 5455247505733001911}
-  - component: {fileID: 5455247505733001904}
   - component: {fileID: 8140932966055531133}
   m_Layer: 0
   m_Name: Bomba
@@ -42,6 +42,36 @@ RectTransform:
   m_AnchoredPosition: {x: 4.53, y: 0.54}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5455247505733001911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5455247505733002057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e9474322d31c91489f26d9f3114d30e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombExplosion: {fileID: 5455247505733001910}
+  waitResponse: 0
+--- !u!114 &5455247505733001904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5455247505733002057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42d20c9db075a284da84d698e9d32a2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bomba: {fileID: 5455247505733002057}
+  radius: 6.95
+  power: 20
+  explosionAnim: {fileID: 0}
 --- !u!212 &5455247505733002058
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -146,36 +176,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5455247505733001911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5455247505733002057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e9474322d31c91489f26d9f3114d30e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bombExplosion: {fileID: 5455247505733001910}
---- !u!114 &5455247505733001904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5455247505733002057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42d20c9db075a284da84d698e9d32a2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bomba: {fileID: 5455247505733002057}
-  radius: 6.95
-  power: 9
-  special_blocks: {fileID: 0}
-  explosionAnim: {fileID: 0}
 --- !u!222 &8140932966055531133
 CanvasRenderer:
   m_ObjectHideFlags: 0

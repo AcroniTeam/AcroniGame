@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
@@ -9,7 +7,7 @@ public static class IOManager
 
     public static void SaveProgress()
     {
-        string path = Application.persistentDataPath + "/player.ada";
+        string path = Application.persistentDataPath + "/character.ada";
 
         BinaryFormatter bnf = new BinaryFormatter();
         FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
@@ -22,8 +20,8 @@ public static class IOManager
 
     public static PlayerData RetriveData()
     {
-        string path = Application.persistentDataPath + "/player.ada";
-
+        string path = Application.persistentDataPath + "/character.ada";
+        
         if (File.Exists(path))
         {
             BinaryFormatter bnf = new BinaryFormatter();
@@ -38,5 +36,22 @@ public static class IOManager
             Debug.LogError("File in " + path + " not fount");
             return null;
         }
+    }
+
+    public static void ResetData()
+    {
+        string path = Application.persistentDataPath + "/character.ada";
+
+        if (File.Exists(path))
+        {
+            BinaryFormatter bnf = new BinaryFormatter();
+            FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
+
+            PlayerData pd = new PlayerData();
+
+            bnf.Serialize(fs, pd);
+            fs.Close();
+        }
+            
     }
 }

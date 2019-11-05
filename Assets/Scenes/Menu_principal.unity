@@ -1127,7 +1127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minimunDiscount: 3
   maximunDiscount: 17
-  LevelQuantity: 2
+  LevelQuantity: 3
   CompletedLevels: 0
 --- !u!4 &937495027
 Transform:

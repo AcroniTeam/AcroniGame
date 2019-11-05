@@ -55,11 +55,9 @@ public class Player : MonoBehaviour
         if (index_spawn < spawns.Length)
         {
             index_spawn++;
-            if (index_spawn == spawns.Length - 1)
+            if (index_spawn == (spawns.Length - 1))
             {
-                CountdownTimer.getInstance().StopTimer();
                 GameManager.GetInstance().BuildNextScene();
-                IOManager.SaveProgress();
             }
         }
         else

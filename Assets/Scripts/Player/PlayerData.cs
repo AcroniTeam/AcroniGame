@@ -4,14 +4,20 @@
 public class PlayerData
 {
 
-    public int scenePlayerStopped;
+    public int scenePlayerStopped = 1;
     public int money;
-    public int discount;
+    public int discount = 3;
 
     public PlayerData(Player player)
     {
         scenePlayerStopped = GameManager.GetInstance().getCurrentSceneIndex();
-        money = player.GetPlayerCurrency();
         discount = GameManager.GetInstance().EvaluateDiscount();
+    }
+
+    public PlayerData()
+    {
+        scenePlayerStopped = 1;
+        money = 0;
+        discount = 0;
     }
 }

@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CameraBoundsManager.cs" />
     <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\Imports\Standard Assets\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
     <Compile Include="Assets\Imports\Standard Assets\CrossPlatformInput\Scripts\ButtonHandler.cs" />
@@ -72,6 +73,8 @@
     <Compile Include="Assets\Imports\Standard Assets\CrossPlatformInput\Scripts\TiltInput.cs" />
     <Compile Include="Assets\Imports\Standard Assets\CrossPlatformInput\Scripts\TouchPad.cs" />
     <Compile Include="Assets\Imports\Standard Assets\CrossPlatformInput\Scripts\VirtualInput.cs" />
+    <Compile Include="Assets\ReleaseBomb.cs" />
+    <Compile Include="Assets\RestartGame.cs" />
     <Compile Include="Assets\Scripts\Analytics-Firebase\CountNumberDeaths.cs" />
     <Compile Include="Assets\Scripts\Analytics-Firebase\FirebaseMethods.cs" />
     <Compile Include="Assets\Scripts\Analytics-Firebase\LoginManager.cs" />

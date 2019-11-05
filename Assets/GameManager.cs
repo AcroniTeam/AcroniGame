@@ -10,12 +10,12 @@ public class GameManager : MonoBehaviour
     bool isLevelOver = false;
 
     public int minimunDiscount = 3;
-    public int maximunDiscount = 17;
-    public int LevelQuantity = 0;
-    public int CompletedLevels = 0;
+    public float maximunDiscount = 17;
+    public float LevelQuantity = 0;
+    public float CompletedLevels = 0;
     int currentSceneIndex = 1;
 
-    static PlayerData playerData;
+    PlayerData playerData;
 
     void Start()
     {
@@ -27,10 +27,12 @@ public class GameManager : MonoBehaviour
         try
         {
             playerData = IOManager.RetriveData();
-            currentSceneIndex = playerData.scenePlayerStopped;
+            currentSceneIndex = playerData.scenePlayerStopped == 0? 1: playerData.scenePlayerStopped;
             CompletedLevels = currentSceneIndex;
         }
-        catch { }
+        catch {
+            
+        }
     }
     
     public static GameManager GetInstance()
@@ -69,9 +71,19 @@ public class GameManager : MonoBehaviour
         LoadScene(currentSceneIndex);
     }
 
+    public void RestartGame()
+    {
+        IOManager.ResetData();
+        currentSceneIndex = 1;
+        CompletedLevels = 1;
+        LoadScene(0);
+    }
+
     public int EvaluateDiscount()
     {
-        return (CompletedLevels/LevelQuantity)*maximunDiscount + minimunDiscount;
+        float discount = maximunDiscount *(CompletedLevels / LevelQuantity) + minimunDiscount;
+        Debug.Log(currentSceneIndex);
+        return Mathf.RoundToInt(discount);
     }
     
     public int incrementSceneIndex()
@@ -87,6 +99,7 @@ public class GameManager : MonoBehaviour
     public void BuildNextScene()
     {
         CompletedLevels++;
-        SceneManager.LoadSceneAsync(incrementSceneIndex());
+        currentSceneIndex++;
+        SceneManager.LoadSceneAsync(currentSceneIndex);
     }
 }

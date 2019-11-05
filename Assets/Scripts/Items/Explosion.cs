@@ -40,7 +40,7 @@ public class Explosion : MonoBehaviour
 
             foreach(Vector3 position in special_blocks.cellBounds.allPositionsWithin)
             {
-                Debug.Log("X: " + position.x + " Y:" + position.y);
+                //Debug.Log("X: " + position.x + " Y:" + position.y);
                 if (Mathf.Abs(Vector3.Distance(explosionPos, position)) <= radius)
                 {
                     var tilePos = special_blocks.WorldToCell(position);
