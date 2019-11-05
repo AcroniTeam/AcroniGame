@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
         {
             playerData = IOManager.RetriveData();
             currentSceneIndex = playerData.scenePlayerStopped == 0? 1: playerData.scenePlayerStopped;
-            CompletedLevels = currentSceneIndex;
+            CompletedLevels = currentSceneIndex - 1;
         }
         catch {
             
@@ -75,14 +75,13 @@ public class GameManager : MonoBehaviour
     {
         IOManager.ResetData();
         currentSceneIndex = 1;
-        CompletedLevels = 1;
+        CompletedLevels = 0;
         LoadScene(0);
     }
 
     public int EvaluateDiscount()
     {
         float discount = maximunDiscount *(CompletedLevels / LevelQuantity) + minimunDiscount;
-        Debug.Log(currentSceneIndex);
         return Mathf.RoundToInt(discount);
     }
     

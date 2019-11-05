@@ -19,6 +19,7 @@ public class OnStartScene : MonoBehaviour
         }
 
         IOManager.SaveProgress();
+        FirebaseMethods.firebaseMethods.AttDiscount(GameManager.GetInstance().EvaluateDiscount());
 
         if (MusicName == null)
             Debug.LogError("Faltando o nome da música na cena!");
