@@ -36,6 +36,7 @@ public class LoginManager : MonoBehaviour
     }
     public void Exit()
     {
+        FirebaseMethods.firebaseMethods = new FirebaseMethods();
         SceneManager.LoadScene("Login");
     }
 }

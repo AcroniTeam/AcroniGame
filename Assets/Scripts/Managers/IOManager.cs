@@ -7,7 +7,7 @@ public static class IOManager
 
     public static void SaveProgress()
     {
-        string path = Application.persistentDataPath + "/character.ada";
+        string path = Application.persistentDataPath + $"/{FirebaseMethods.firebaseMethods.getFirebaseUser().Email}.ada";
 
         BinaryFormatter bnf = new BinaryFormatter();
         FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
@@ -20,7 +20,7 @@ public static class IOManager
 
     public static PlayerData RetriveData()
     {
-        string path = Application.persistentDataPath + "/character.ada";
+        string path = Application.persistentDataPath + $"/{FirebaseMethods.firebaseMethods.getFirebaseUser().Email}.ada";
         
         if (File.Exists(path))
         {

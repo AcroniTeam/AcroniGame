@@ -8,7 +8,10 @@ public class OnStartScene : MonoBehaviour
     public SceneType SceneType;
 
     public static SceneType sceneType;
-
+    private void Awake()
+    {
+        
+    }
     void Start()
     {
         sceneType = SceneType;
@@ -18,9 +21,7 @@ public class OnStartScene : MonoBehaviour
             return;
         }
 
-        IOManager.SaveProgress();
-        FirebaseMethods.firebaseMethods.AttDiscount(GameManager.GetInstance().EvaluateDiscount());
-
+        
         if (MusicName == null)
             Debug.LogError("Faltando o nome da música na cena!");
         else
@@ -30,19 +31,31 @@ public class OnStartScene : MonoBehaviour
         {
             InventoryPopUpController.GetPopUpController().Block();
         }
-        catch { }
-
-        try
-        {
-            if (FirebaseMethods.firebaseMethods.getFirebaseUser().Email != string.Empty)
-                welcome_username.text = "Welcome, " + FirebaseMethods.firebaseMethods.getFirebaseUser().Email;
-        }
-        catch { }
-        
+        catch { }     
         
         //provisório tbm
     }
+
+    bool stop = false;
+    private void Update()
+    {
+        if (stop)
+            return;
+        if (FirebaseMethods.firebaseMethods.getFirebaseUser().Email != string.Empty)
+        {
+            try
+            {
+                welcome_username.text = "Welcome, " + FirebaseMethods.firebaseMethods.getFirebaseUser().Email;
+            }
+            catch (System.Exception) { }
+            stop = true;
+            IOManager.SaveProgress();
+            FirebaseMethods.firebaseMethods.AttDiscount(GameManager.GetInstance().EvaluateDiscount());
+        }
+    }
+
 }
+
 
 public enum SceneType
 {
