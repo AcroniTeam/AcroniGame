@@ -8,6 +8,7 @@ public class ReleaseBomb : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        bomb_reference.GetComponent<Bomba>().Release();
+        if (bomb_reference != null)
+            bomb_reference.GetComponent<Bomba>().Release();
     }
 }

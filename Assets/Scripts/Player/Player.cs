@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Player : MonoBehaviour
 {
@@ -70,5 +71,10 @@ public class Player : MonoBehaviour
             player_currency -= amount;
 
         return player_currency;
+    }
+
+    internal Collider2D[] GetColliders()
+    {
+        return GetComponents<Collider2D>();
     }
 }

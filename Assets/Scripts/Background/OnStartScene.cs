@@ -21,7 +21,10 @@ public class OnStartScene : MonoBehaviour
             return;
         }
 
-        
+        CountdownTimer.getInstance().StartTimer();
+        Time.timeScale = 1;
+        AudioManager.GetInstance().AcelerateSfx();
+
         if (MusicName == null)
             Debug.LogError("Faltando o nome da música na cena!");
         else
@@ -32,8 +35,6 @@ public class OnStartScene : MonoBehaviour
             InventoryPopUpController.GetPopUpController().Block();
         }
         catch { }     
-        
-        //provisório tbm
     }
 
     bool stop = false;
@@ -45,7 +46,7 @@ public class OnStartScene : MonoBehaviour
         {
             try
             {
-                welcome_username.text = "Welcome, " + FirebaseMethods.firebaseMethods.getFirebaseUser().Email;
+                welcome_username.text = "Welcome, " + FirebaseMethods.firebaseMethods.getFirebaseUser().Email.Split('@')[0];
             }
             catch (System.Exception) { }
             stop = true;
@@ -53,7 +54,6 @@ public class OnStartScene : MonoBehaviour
             FirebaseMethods.firebaseMethods.AttDiscount(GameManager.GetInstance().EvaluateDiscount());
         }
     }
-
 }
 
 

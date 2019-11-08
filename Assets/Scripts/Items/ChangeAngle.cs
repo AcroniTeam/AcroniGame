@@ -31,7 +31,7 @@ public class ChangeAngle : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         timepassed += Time.deltaTime;
-        Debug.Log(timepassed);
+        //Debug.Log(timepassed);
         //if (!alreadyAddedForce)
         //{
         if (timepassed > 0.03)

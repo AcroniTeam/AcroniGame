@@ -15,7 +15,7 @@ public class LoginManager : MonoBehaviour
             fez = FirebaseMethods.firebaseMethods.Login(login.text,senha.text);
         if (fez)
         {
-            Debug.Log("fez né vei");
+            //Debug.Log("fez né vei");
             SceneManager.LoadScene("Menu_principal");
         }
     }
@@ -26,7 +26,7 @@ public class LoginManager : MonoBehaviour
             fez = FirebaseMethods.firebaseMethods.SignUp(login.text, senha.text);
         if (fez)
         {
-            Debug.Log("fez né vei");
+            //Debug.Log("fez né vei");
             SceneManager.LoadScene("Menu_principal");
         }
     }

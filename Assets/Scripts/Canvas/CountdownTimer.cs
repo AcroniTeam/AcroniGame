@@ -30,6 +30,7 @@ public class CountdownTimer : MonoBehaviour
     bool isRunning = true;
     public void StopTimer()
     {
+        Debug.Log("Stopped");
         isRunning = false;
         try
         {

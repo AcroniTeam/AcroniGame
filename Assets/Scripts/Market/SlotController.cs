@@ -1,6 +1,7 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class SlotController : MonoBehaviour
 {
@@ -56,17 +57,37 @@ public class SlotController : MonoBehaviour
 
     void SummonItem(string itemName)
     {
-        switch(itemName)
-        {
-            case "Bloco Especial": SpecialBlockTilemap.GetSpecialBlockTilemap().GetTilemap().SetTile(new Vector3Int(Mathf.FloorToInt(transform.position.x),Mathf.FloorToInt(transform.position.y),0), ItemFactory.GetFactory().ProduceSpecialBlock());
-                SpecialBlockTilemap.GetSpecialBlockTilemap().GetTilemap().RefreshAllTiles();
-                break;
-            default:
-                Instantiate(ItemFactory.GetFactory().ProduceItem(itemName), transform.position /*+ offset */, Quaternion.identity);
-                break;
-        }
+        if (HasSomethingAt(transform.position))
+            return;
+
+            switch (itemName)
+            {
+                case "Bloco Especial":
+                    SpecialBlockTilemap.GetSpecialBlockTilemap().GetTilemap().SetTile(new Vector3Int(Mathf.FloorToInt(transform.position.x), Mathf.FloorToInt(transform.position.y), 0), ItemFactory.GetFactory().ProduceSpecialBlock());
+                    SpecialBlockTilemap.GetSpecialBlockTilemap().GetTilemap().RefreshAllTiles();
+                    break;
+                default:
+                    Instantiate(ItemFactory.GetFactory().ProduceItem(itemName), transform.position /*+ offset */, Quaternion.identity);
+                    break;
+            }
         FirebaseMethods.firebaseMethods.IncrementQttItems(itemName);
         item_quantity.text = Player.getInstance().GetPlayerInventory().DecreseQuantityFromItem(itemName).ToString();
+    }
+
+    bool HasSomethingAt(Vector3 position) {
+        foreach(Tilemap tp in FindObjectsOfType<Tilemap>())
+        {
+            if (tp.HasTile(new Vector3Int(Mathf.FloorToInt(position.x), Mathf.FloorToInt(position.y), 0)))
+            {
+                return true;
+            }
+        }
+        ContactFilter2D cf2d = new ContactFilter2D();
+        if (box.OverlapCollider(cf2d.NoFilter(), Player.getInstance().GetColliders()) > 0)
+        {
+            return true;
+        }
+        return false;
     }
 
     public void SetEnabled(bool enabled) {
