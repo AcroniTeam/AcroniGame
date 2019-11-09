@@ -13,7 +13,7 @@ public class PuzzleCollider2D : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (Vector3.Dot(collision.GetContact(0).normal,Vector3.down) > 0.5)
+        if (Vector3.Dot(collision.GetContact(0).normal,Vector3.down) > 0.5 && collision.gameObject.tag.Equals("Player"))
         {
             Player.getInstance().TeleportToSpawn();
             puzzleTilemap.Clear();

@@ -37,6 +37,11 @@ public class InventoryPopUpController : MonoBehaviour
         }
     }
 
+    public bool IsOpen()
+    {
+        return (popUp2item.IsOpen() || popUp1item.IsOpen());
+    }
+
     public void Block()
     {
         openButton.gameObject.SetActive(false);
@@ -52,5 +57,20 @@ public class InventoryPopUpController : MonoBehaviour
     public void BlockInventory(int indicator)
     {
         disponibleSlots[indicator] = false;
+        if (indicator == 0)
+            openButton.gameObject.SetActive(false);
+    }
+
+    public void SwitchInventories()
+    {
+        if (popUp2item.IsOpen())
+        {
+            popUp2item.Close();
+            popUp1item.Open();
+        }
+        else if (popUp1item.IsOpen())
+        {
+            popUp1item.Close();
+        }
     }
 }
