@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
             playerData = IOManager.RetriveData();
             currentSceneIndex = playerData.scenePlayerStopped == 0? 1: playerData.scenePlayerStopped;
             CompletedLevels = currentSceneIndex - 1;
+           
         }
         catch {
             

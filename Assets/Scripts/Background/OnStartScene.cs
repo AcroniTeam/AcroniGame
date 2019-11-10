@@ -6,6 +6,7 @@ public class OnStartScene : MonoBehaviour
     public string MusicName;
     public TMP_Text welcome_username;
     public SceneType SceneType;
+    public GameObject canvas;
 
     public static SceneType sceneType;
     private void Awake()
@@ -24,6 +25,7 @@ public class OnStartScene : MonoBehaviour
         CountdownTimer.getInstance().StartTimer();
         Time.timeScale = 1;
         AudioManager.GetInstance().AcelerateSfx();
+        canvas.GetComponent<Canvas>().enabled = true;
 
         if (MusicName == null)
             Debug.LogError("Faltando o nome da música na cena!");
