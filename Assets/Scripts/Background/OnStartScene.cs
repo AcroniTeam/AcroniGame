@@ -21,11 +21,14 @@ public class OnStartScene : MonoBehaviour
             UnityEngine.SceneManagement.SceneManager.LoadScene("Menu_Principal");
             return;
         }
+        if (CountdownTimer.getInstance() != null)
+            CountdownTimer.getInstance().StartTimer();
 
-        CountdownTimer.getInstance().StartTimer();
         Time.timeScale = 1;
         AudioManager.GetInstance().AcelerateSfx();
-        canvas.GetComponent<Canvas>().enabled = true;
+
+        if(canvas!= null)
+            canvas.GetComponent<Canvas>().enabled = true;
 
         if (MusicName == null)
             Debug.LogError("Faltando o nome da música na cena!");

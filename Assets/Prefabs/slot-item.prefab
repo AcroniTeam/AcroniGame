@@ -93,8 +93,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -256,8 +256,8 @@ MonoBehaviour:
   item_quantity: {fileID: 5724449290111286900}
   slotType: 1
   rect: {fileID: 4168816214419634180}
-  box_checktrigger: {fileID: 8744507061885413749}
-  box_holdable: {fileID: 1108149450349401066}
+  box_checktrigger: {fileID: 0}
+  box_holdable: {fileID: 0}
 --- !u!61 &8744507061885413749
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -271,7 +271,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 2.2280426, y: 1.9093323}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -282,7 +282,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 30, y: 30}
+  m_Size: {x: 97.738556, y: 92.00983}
   m_EdgeRadius: 0
 --- !u!61 &1108149450349401066
 BoxCollider2D:
@@ -308,7 +308,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 75, y: 75}
+  m_Size: {x: 161, y: 161}
   m_EdgeRadius: 0
 --- !u!1 &7123828079153332915
 GameObject:
@@ -344,8 +344,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 57, y: 56.7}
-  m_SizeDelta: {x: 24.27, y: 24.71}
+  m_AnchoredPosition: {x: 52.68, y: 45.660034}
+  m_SizeDelta: {x: 32.91, y: 46.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8144283180855753774
 CanvasRenderer:
@@ -418,8 +418,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 0}
-  m_SizeDelta: {x: 145, y: 145}
+  m_AnchoredPosition: {x: 0.96, y: 0}
+  m_SizeDelta: {x: 125, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &487999852989709884
 CanvasRenderer:

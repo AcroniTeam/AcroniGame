@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 
-public class SwitchController : MonoBehaviour
+public class PopUpInventory : MonoBehaviour
 {
     Animator inventory;
+
+    public SlotController[] slots;
 
     bool isOpen = false;
 
@@ -28,5 +30,25 @@ public class SwitchController : MonoBehaviour
     public bool IsOpen()
     {
         return isOpen;
+    }
+
+    public SlotController GetSlot(int index)
+    {
+        return slots[index];
+    }
+
+    public void FillSlots(InventoryItem item)
+    {
+        if (slots.Length == 0)
+            return;
+
+        foreach (SlotController slt in slots)
+        {
+            if (slt.IsEmpty() || slt.Equals(item))
+            {
+                slt.Fill(item);
+                return;
+            }
+        }
     }
 }

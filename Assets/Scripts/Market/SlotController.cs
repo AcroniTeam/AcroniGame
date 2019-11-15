@@ -25,11 +25,12 @@ public class SlotController : MonoBehaviour
     #region SlotController Methods
 
     public void Fill(InventoryItem slot)
-    {
+    {  
         slot_item = slot.GetName();
 
         imageAnimator.SetBool("BeDefault",false);
         imageAnimator.SetTrigger(slot_item);
+        
         item_quantity.text = slot.GetQuantity().ToString();
         item_reference = slot;
 
@@ -64,17 +65,19 @@ public class SlotController : MonoBehaviour
 
     void SummonItem(string itemName)
     {
-        if (HasSomethingAt(transform.position))
+        Vector3 p_position = Camera.main.ScreenToWorldPoint(transform.position);
+
+        if (HasSomethingAt(p_position))
             return;
 
         switch (itemName)
         {
             case "Bloco Especial":
-                SpecialBlockTilemap.GetSpecialBlockTilemap().GetTilemap().SetTile(new Vector3Int(Mathf.FloorToInt(transform.position.x), Mathf.FloorToInt(transform.position.y), 0), ItemFactory.GetFactory().ProduceSpecialBlock());
+                SpecialBlockTilemap.GetSpecialBlockTilemap().GetTilemap().SetTile(new Vector3Int(Mathf.FloorToInt(p_position.x), Mathf.FloorToInt(p_position.y), 0), ItemFactory.GetFactory().ProduceSpecialBlock());
                 SpecialBlockTilemap.GetSpecialBlockTilemap().GetTilemap().RefreshAllTiles();
                 break;
             default:
-                Instantiate(ItemFactory.GetFactory().ProduceItem(itemName), transform.position /*+ offset */, Quaternion.identity);
+                Instantiate(ItemFactory.GetFactory().ProduceItem(itemName), p_position /*+ offset */, Quaternion.identity);
                 break;
         }
 
@@ -92,6 +95,7 @@ public class SlotController : MonoBehaviour
                 return true;
             }
         }
+
         ContactFilter2D cf2d = new ContactFilter2D();
         if (box_checktrigger.IsTouching(cf2d.NoFilter()))
         {
@@ -125,12 +129,10 @@ public class SlotController : MonoBehaviour
         {
             if (isMoving)
             {
-                //if (InventoryController.GetInventoryController().GetCollider().OverlapCollider(new ContactFilter2D().NoFilter(), new Collider2D[] { box }) != 0)
-                //{
-                    isMoving = false;
-                    SummonItem(slot_item);
-                    rect.anchoredPosition = startPoint;
-                //}
+
+                isMoving = false;
+                SummonItem(slot_item);
+                rect.anchoredPosition = startPoint;
 
                 if (item_quantity.text.Equals("0"))
                 {
@@ -144,7 +146,7 @@ public class SlotController : MonoBehaviour
         }
 
         Vector3 position = Input.touchCount == 2? Input.GetTouch(1).position : Input.GetTouch(0).position;
-        position = Camera.main.ScreenToWorldPoint(position);
+        //position = Camera.main.ScreenToWorldPoint(position);
 
         if (box_holdable.OverlapPoint(position) || isMoving)
         {
@@ -162,6 +164,7 @@ public class SlotController : MonoBehaviour
             rect.position = Position;
         }
     }
+    
     #endregion
 }
 

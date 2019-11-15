@@ -7,8 +7,9 @@ public class CountdownTimer : MonoBehaviour
 {
     public float minutes;
     public float seconds;
+    public TextMeshProUGUI timer_minutes;
+    public TextMeshProUGUI timer_seconds;
 
-    TextMeshProUGUI timer;
     float currentSeconds = 0f;
     float currentMinutes = 0f;
     bool isCompleted = false;
@@ -18,7 +19,6 @@ public class CountdownTimer : MonoBehaviour
     {
         currentMinutes = minutes;
         currentSeconds = seconds;
-        timer = GetComponent<TextMeshProUGUI>();
         countdownTimer = this;
     }
 
@@ -50,11 +50,16 @@ public class CountdownTimer : MonoBehaviour
         if(countTo > 0)
         {
             countTo -= 1 * Time.unscaledDeltaTime;
-            timer.color = new Color32(161, 0, 255, 255);
-            if(countTo > 0)
-                timer.text = Mathf.FloorToInt(countTo).ToString();
+            timer_minutes.color = new Color32(161, 0, 255, 255);
+            timer_seconds.color = new Color32(161, 0, 255, 255);
 
-            if(countTo > 0 && countTo < 0.5)
+            if (countTo > 0)
+            {
+                timer_minutes.text = "0";
+                timer_seconds.text = Mathf.FloorToInt(countTo).ToString();
+            }
+
+            if (countTo > 0 && countTo < 0.5)
             {
                 AudioManager.GetInstance().AcelerateSfx();
                 FreezeMenu.GetFreezeMenu().UnfreezeScreen();
@@ -66,8 +71,11 @@ public class CountdownTimer : MonoBehaviour
             return;
         }
 
-        if(timer.color.Equals(new Color32(161,0,255,255)))
-            timer.color = new Color32(161,161,161,255);
+        if(timer_minutes.color.Equals(new Color32(161,0,255,255)))
+        {
+            timer_minutes.color = new Color32(161, 161, 161, 255);
+            timer_seconds.color = new Color32(161, 161, 161, 255);
+        }
 
         if (isCompleted)
         {
@@ -84,7 +92,8 @@ public class CountdownTimer : MonoBehaviour
             return;
         }
 
-        timer.text = (currentMinutes != 0?currentMinutes+":":"") + (sec > 9?sec +"":("0"+sec));
+        timer_minutes.text = (currentMinutes>0?"0":"")+currentMinutes;
+        timer_seconds.text = (sec > 9?sec +"":("0"+sec));
 
         if (currentSeconds <= 0 && currentMinutes != 0)
         {

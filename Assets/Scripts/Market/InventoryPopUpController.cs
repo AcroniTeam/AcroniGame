@@ -6,13 +6,14 @@ public class InventoryPopUpController : MonoBehaviour
     private static InventoryPopUpController instance;
 
     public Button openButton;
-    public SwitchController popUp1item;
-    public SwitchController popUp2item;
+    public PopUpInventory popUp1item;
+    public PopUpInventory popUp2item;
+    public PopUpInventory pupUp3item;
 
     private void Start()
     {
         instance = this;
-        openButton.gameObject.SetActive(false);
+        //openButton.gameObject.SetActive(false);
     }
 
     public static InventoryPopUpController GetPopUpController()
