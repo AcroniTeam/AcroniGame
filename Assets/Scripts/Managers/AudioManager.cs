@@ -47,11 +47,15 @@ public class AudioManager : MonoBehaviour
         return instance;
     }
 
+    static string currentBgmName;
     public void Play(string audio_name)
     {
         Sound sound = Array.Find(sounds, s => s.name == audio_name);
         if (sound == null)
             return;
+
+        if (audio_name.StartsWith("bgm"))
+            currentBgmName = audio_name;
         sound.source.Play();
     }
 
@@ -100,5 +104,10 @@ public class AudioManager : MonoBehaviour
             if (sound.name.StartsWith("sfx"))
                 sound.source.pitch = 1f;
         }
+    }
+
+    public string GetCurrentBGM()
+    {
+        return currentBgmName;
     }
 }

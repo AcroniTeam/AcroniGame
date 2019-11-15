@@ -2192,6 +2192,13 @@ MonoBehaviour:
     pitch: 1
     dimension: 0
     loop: 1
+  - clip: {fileID: 8300000, guid: 289979b40ba8b71409bcde64ca5012c7, type: 3}
+    source: {fileID: 0}
+    name: bgm-wave
+    volume: 1
+    pitch: 1
+    dimension: 0
+    loop: 1
 --- !u!4 &1517706928
 Transform:
   m_ObjectHideFlags: 0

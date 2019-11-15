@@ -73,6 +73,7 @@
     <Compile Include="Assets\Imports\Standard Assets\CrossPlatformInput\Scripts\TouchPad.cs" />
     <Compile Include="Assets\Imports\Standard Assets\CrossPlatformInput\Scripts\VirtualInput.cs" />
     <Compile Include="Assets\LevelSelectorButton.cs" />
+    <Compile Include="Assets\SceneTransition.cs" />
     <Compile Include="Assets\Scripts\Analytics-Firebase\CountNumberDeaths.cs" />
     <Compile Include="Assets\Scripts\Analytics-Firebase\FirebaseMethods.cs" />
     <Compile Include="Assets\Scripts\Analytics-Firebase\LoginManager.cs" />

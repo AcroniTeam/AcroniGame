@@ -552,7 +552,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507404832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8975556, y: -3.362, z: -2}
+  m_LocalPosition: {x: -1.8966246, y: -3.362, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 779632867}
@@ -6848,16 +6848,16 @@ Tilemap:
   - m_RefCount: 0
     m_Data:
       e00: 0
-      e01: 2.1440228e-23
+      e01: 6.4701856e+36
       e02: 0
       e03: 832.1123
       e10: 0
-      e11: 3.7891e-41
+      e11: 3.9816e-41
       e12: 0
       e13: 1e-45
-      e20: 9.3101e-36
+      e20: 6.9943066e-37
       e21: 26.3051
-      e22: 1.6670863e-35
+      e22: 4.2653714e-36
       e23: 0
       e30: 0
       e31: 1e-45
@@ -8987,7 +8987,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453620399}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6455052, y: -1.2192793, z: -2}
+  m_LocalPosition: {x: -1.6434946, y: -1.2192793, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9763,7 +9763,7 @@ PrefabInstance:
         type: 3}
       propertyPath: imageAnimator
       value: 
-      objectReference: {fileID: 1682016498}
+      objectReference: {fileID: 0}
     - target: {fileID: 7544147413206934307, guid: b7fd39aed73d1ed4784e58c5a15e92cc,
         type: 3}
       propertyPath: box_checktrigger
@@ -9911,12 +9911,6 @@ Animator:
 --- !u!95 &1682016497 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1604279786902901185, guid: b7fd39aed73d1ed4784e58c5a15e92cc,
-    type: 3}
-  m_PrefabInstance: {fileID: 1682016494}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1682016498 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5678247454643156357, guid: b7fd39aed73d1ed4784e58c5a15e92cc,
     type: 3}
   m_PrefabInstance: {fileID: 1682016494}
   m_PrefabAsset: {fileID: 0}

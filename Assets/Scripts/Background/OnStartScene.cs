@@ -18,7 +18,7 @@ public class OnStartScene : MonoBehaviour
         sceneType = SceneType;
         if (GameManager.GetInstance() == null)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu_Principal");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("loading_scene");
             return;
         }
         if (CountdownTimer.getInstance() != null)
@@ -32,8 +32,12 @@ public class OnStartScene : MonoBehaviour
 
         if (MusicName == null)
             Debug.LogError("Faltando o nome da música na cena!");
-        else
+        else if (!MusicName.Equals(AudioManager.GetInstance().GetCurrentBGM()))
+        {
+            AudioManager.GetInstance().Stop(AudioManager.GetInstance().GetCurrentBGM());
             AudioManager.GetInstance().Play(MusicName);
+        }
+            
 
         try
         {
