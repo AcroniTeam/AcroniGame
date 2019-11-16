@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/nova_terrestre.unity
+- path: Assets/Scenes/casa_da_ada.unity
   isLoaded: 1
   isActive: 1
