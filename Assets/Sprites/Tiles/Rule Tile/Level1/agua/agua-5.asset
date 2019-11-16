@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: agua-5
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 21300010, guid: 0cd54114153a73340b98623fa7aef573, type: 3}
+  - {fileID: 21300010, guid: 7d5a980d6354af3439f1a3a8d336750b, type: 3}
+  - {fileID: 21300010, guid: 21eebfdef70369842a5b104d4e4f27aa, type: 3}
+  - {fileID: 21300010, guid: ba7fcde941c506442adda3970a3fa881, type: 3}
+  - {fileID: 21300010, guid: 5cb3b75c4207bcb4a84ad23bb06551ca, type: 3}
+  - {fileID: 21300010, guid: e6fc3d0e9c5436047b8055d91505a869, type: 3}
+  - {fileID: 21300010, guid: 876de92c2af325b42a08c94aff84d6bd, type: 3}
+  - {fileID: 21300010, guid: 3a5ab90ab24f89b499d567e26773bc7f, type: 3}
+  - {fileID: 21300002, guid: 681a9db5ba9adcb4fba3405d6b90b2f9, type: 3}
+  - {fileID: 21300002, guid: 218b6aff71eced44baaf296b4e883da6, type: 3}
+  - {fileID: 21300002, guid: 12c9a4b42dae4794fbdf786036154f28, type: 3}
+  - {fileID: 21300010, guid: 5d907a9bd67b97348978fbcbeee68450, type: 3}
+  - {fileID: 21300010, guid: d5963a0f59c6f7d488380b750a42d56c, type: 3}
+  m_MinSpeed: 1
+  m_MaxSpeed: 1
+  m_AnimationStartTime: 0
+  m_TileColliderType: 0
