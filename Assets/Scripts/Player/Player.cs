@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     static Inventory player_inventory;
     int player_currency = 500;
 
+    public int[] spawnsDistribution;
+
     private void Awake()
     {
         instance = this;

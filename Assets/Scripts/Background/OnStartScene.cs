@@ -9,6 +9,7 @@ public class OnStartScene : MonoBehaviour
     public GameObject canvas;
 
     public static SceneType sceneType;
+
     private void Awake()
     {
         
@@ -37,8 +38,6 @@ public class OnStartScene : MonoBehaviour
             AudioManager.GetInstance().Stop(AudioManager.GetInstance().GetCurrentBGM());
             AudioManager.GetInstance().Play(MusicName);
         }
-            
-
         try
         {
             InventoryPopUpController.GetPopUpController().Block();
@@ -64,7 +63,6 @@ public class OnStartScene : MonoBehaviour
         }
     }
 }
-
 
 public enum SceneType
 {

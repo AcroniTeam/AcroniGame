@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     public float maximunDiscount = 17;
     public float LevelQuantity = 0;
     public float CompletedLevels = 0;
-    int currentSceneIndex = 1;
+
+    int currentSceneIndex = 1;    
 
     PlayerData playerData;
 
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
             playerData = IOManager.RetriveData();
             currentSceneIndex = playerData.scenePlayerStopped == 0? 1: playerData.scenePlayerStopped;
             CompletedLevels = currentSceneIndex - 1;
-           
+            Player.getInstance().spawnsDistribution = (playerData.scenes == null ? new int[(int)LevelQuantity] : playerData.scenes);
         }
         catch {
             
