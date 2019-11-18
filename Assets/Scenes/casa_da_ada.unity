@@ -154,11 +154,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.692635, y: 2.3607502}
-      - {x: 2.6478162, y: -0.018151522}
-      - {x: 2.1885047, y: -7.4166665}
-      - {x: 22.750484, y: -7.6446147}
-      - {x: 22.759296, y: 2.1651783}
+    - - {x: -1.6622887, y: 3.609345}
+      - {x: -1.6176739, y: 0.033200026}
+      - {x: -1.7202158, y: -9.879492}
+      - {x: 23.613375, y: -9.98942}
+      - {x: 23.54903, y: 3.4630494}
 --- !u!4 &11166975
 Transform:
   m_ObjectHideFlags: 0
@@ -398,7 +398,7 @@ MonoBehaviour:
   m_Follow: {fileID: 510736127}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 4
+    OrthographicSize: 6
     NearClipPlane: 0.1
     FarClipPlane: 10
     Dutch: 0
@@ -421,7 +421,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507404832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.106, y: 0, z: -2}
+  m_LocalPosition: {x: -0.2540002, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 779632867}
@@ -4302,16 +4302,16 @@ MonoBehaviour:
   m_YDamping: 1
   m_ZDamping: 1
   m_ScreenX: 0.4
-  m_ScreenY: 0.4
+  m_ScreenY: 0.40000004
   m_CameraDistance: 2
   m_DeadZoneWidth: 0.263
-  m_DeadZoneHeight: 0.162
+  m_DeadZoneHeight: 0.03
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 1
   m_SoftZoneWidth: 0.282
   m_SoftZoneHeight: 0.281
   m_BiasX: 0
-  m_BiasY: 0.000007763631
+  m_BiasY: 0.000006649124
   m_CenterOnActivate: 0
   m_GroupFramingMode: 2
   m_AdjustmentMode: 2
@@ -4816,7 +4816,7 @@ Camera:
   far clip plane: 10
   field of view: 40
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4840,7 +4840,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453620399}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.539022, y: -0.17188239, z: -2}
+  m_LocalPosition: {x: 1.2286067, y: -0.013911724, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4896,8 +4896,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AssetsPPU: 16
-  m_RefResolutionX: 300
-  m_RefResolutionY: 150
+  m_RefResolutionX: 320
+  m_RefResolutionY: 192
   m_UpscaleRT: 1
   m_PixelSnapping: 0
   m_CropFrameX: 0

@@ -155,16 +155,16 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 66.602356, y: -4.737737}
-      - {x: 66.76186, y: 2.6192403}
-      - {x: 57.61232, y: 3.0133543}
-      - {x: 46.250916, y: 3.114839}
+      - {x: 66.432144, y: 5.0372024}
+      - {x: 57.722225, y: 5.3214087}
+      - {x: 46.58064, y: 5.312986}
       - {x: 46.044395, y: 5.3942623}
       - {x: 1.2186441, y: 5.011887}
-      - {x: 1.2533836, y: -8.089279}
-      - {x: 13.6524315, y: -7.657299}
-      - {x: 15.649436, y: -9.096793}
-      - {x: 28.796602, y: -8.930096}
-      - {x: 66.5035, y: -8.581354}
+      - {x: 1.2023048, y: -11.703007}
+      - {x: 13.08567, y: -11.637869}
+      - {x: 16.329556, y: -11.363852}
+      - {x: 28.343193, y: -11.197155}
+      - {x: 66.73021, y: -11.755238}
 --- !u!4 &11166975
 Transform:
   m_ObjectHideFlags: 0
@@ -636,12 +636,12 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 66.602356, y: -4.737737}
       - {x: 66.76186, y: 2.6192403}
-      - {x: 1.3453932, y: 2.7304}
-      - {x: 1.2533836, y: -8.089279}
-      - {x: 13.6524315, y: -7.657299}
-      - {x: 15.649436, y: -9.096793}
-      - {x: 28.796602, y: -8.930096}
-      - {x: 66.5035, y: -8.581354}
+      - {x: 2.9898682, y: 2.7304}
+      - {x: 3.0712242, y: -12.748583}
+      - {x: 13.5297165, y: -12.811146}
+      - {x: 15.404018, y: -12.28727}
+      - {x: 28.796612, y: -12.544132}
+      - {x: 66.69371, y: -13.146454}
 --- !u!4 &355325780
 Transform:
   m_ObjectHideFlags: 0
@@ -797,7 +797,7 @@ MonoBehaviour:
   m_Follow: {fileID: 510736127}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 4
+    OrthographicSize: 6
     NearClipPlane: 0.1
     FarClipPlane: 10
     Dutch: 0
@@ -820,7 +820,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507404832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4860001, y: -3.362, z: -2}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 779632867}
@@ -9542,16 +9542,16 @@ MonoBehaviour:
   m_YDamping: 1
   m_ZDamping: 1
   m_ScreenX: 0.4
-  m_ScreenY: 0
+  m_ScreenY: 0.503
   m_CameraDistance: 2
   m_DeadZoneWidth: 0.263
-  m_DeadZoneHeight: 0.162
+  m_DeadZoneHeight: 1
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 1
   m_SoftZoneWidth: 0.282
-  m_SoftZoneHeight: 0.281
+  m_SoftZoneHeight: 1
   m_BiasX: 0
-  m_BiasY: 0.00000075131913
+  m_BiasY: 0
   m_CenterOnActivate: 0
   m_GroupFramingMode: 2
   m_AdjustmentMode: 2
@@ -10305,7 +10305,7 @@ Camera:
   far clip plane: 10
   field of view: 40
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10329,7 +10329,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453620399}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7566185, y: -1.2192793, z: -2}
+  m_LocalPosition: {x: 3.2067986, y: -0.0031342506, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10385,8 +10385,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AssetsPPU: 16
-  m_RefResolutionX: 300
-  m_RefResolutionY: 150
+  m_RefResolutionX: 320
+  m_RefResolutionY: 192
   m_UpscaleRT: 1
   m_PixelSnapping: 0
   m_CropFrameX: 0
@@ -11156,7 +11156,7 @@ PrefabInstance:
     - target: {fileID: 8889331150343121210, guid: b7fd39aed73d1ed4784e58c5a15e92cc,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8889331150343121210, guid: b7fd39aed73d1ed4784e58c5a15e92cc,
         type: 3}
