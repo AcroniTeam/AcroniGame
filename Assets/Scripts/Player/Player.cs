@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
         return player_currency;
     }
 
+
     public GameObject[] spawns;
     private int index_spawn = 0;
 
@@ -74,6 +75,14 @@ public class Player : MonoBehaviour
 
         return player_currency;
     }
+
+    public int AddPlayerCurrency(int amount)
+    {
+        player_currency += amount;
+
+        return player_currency;
+    }
+
 
     internal Collider2D[] GetColliders()
     {
