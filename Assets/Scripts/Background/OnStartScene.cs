@@ -17,11 +17,12 @@ public class OnStartScene : MonoBehaviour
     void Start()
     {
         sceneType = SceneType;
-        if (GameManager.GetInstance() == null)
+        if (GameManager.GetInstance() == null && !UnityEngine.SceneManagement.SceneManager.GetActiveScene().name.Equals("loading_scene"))
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("loading_scene");
             return;
         }
+
         if (CountdownTimer.getInstance() != null)
             CountdownTimer.getInstance().StartTimer();
 
@@ -38,6 +39,7 @@ public class OnStartScene : MonoBehaviour
             AudioManager.GetInstance().Stop(AudioManager.GetInstance().GetCurrentBGM());
             AudioManager.GetInstance().Play(MusicName);
         }
+
         try
         {
             InventoryPopUpController.GetPopUpController().Block();

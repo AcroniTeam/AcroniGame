@@ -5,7 +5,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     int coinValue = 1;
-    bool HasTaken;
+    bool HasTaken = false;
 
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -19,7 +19,6 @@ public class Coin : MonoBehaviour
         {
       
             int current = Player.getInstance().AddPlayerCurrency(coinValue);
-            Debug.Log(current);
             Store.GetInstance().SetCurrencyDisplay(current);
             Destroy(gameObject);
         }
