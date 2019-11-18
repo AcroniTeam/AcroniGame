@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/loading_scene.unity
     guid: bca339e60da9cd74092db8891d4d2a2a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/special_block-stage.unity
     guid: 83558cc7b9c321a4ba1f1cd32c0b7c08
   - enabled: 1

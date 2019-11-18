@@ -7129,16 +7129,16 @@ Tilemap:
   - m_RefCount: 0
     m_Data:
       e00: 0
-      e01: 4.6785483e+20
+      e01: -6.6391765e-13
       e02: 0
       e03: 832.1123
       e10: 0
-      e11: 1.0073e-41
+      e11: 7.468e-42
       e12: 0
       e13: 1e-45
-      e20: 4.3024015e-36
+      e20: 9.16904e-36
       e21: 26.3051
-      e22: 4.218231e-36
+      e22: 9.2155026e-36
       e23: 0
       e30: 0
       e31: 1e-45
@@ -9361,7 +9361,7 @@ PrefabInstance:
     - target: {fileID: 5785359161049287087, guid: 59b07c7b7b94fe9499cbf0749a004acf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5785359161049287087, guid: 59b07c7b7b94fe9499cbf0749a004acf,
         type: 3}
@@ -9462,11 +9462,6 @@ PrefabInstance:
         type: 3}
       propertyPath: velocidade
       value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 5785359161049287074, guid: 59b07c7b7b94fe9499cbf0749a004acf,
-        type: 3}
-      propertyPath: m_MovementSmoothing
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5785359161049287084, guid: 59b07c7b7b94fe9499cbf0749a004acf,
         type: 3}
