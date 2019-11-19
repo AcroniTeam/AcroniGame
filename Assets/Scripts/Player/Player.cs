@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
 
     public int[] spawnsDistribution;
 
+    bool[] lifes = { true, true, true };
+
     private void Awake()
     {
         instance = this;
@@ -83,9 +85,25 @@ public class Player : MonoBehaviour
         return player_currency;
     }
 
-
     internal Collider2D[] GetColliders()
     {
         return GetComponents<Collider2D>();
+    }
+
+    public void TakeAHeart()
+    {
+        for(int i = 2; i >= 0; i--)
+        {
+            if(lifes[i])
+            {
+                lifes[i] = false;
+                break;
+            }
+        }
+
+        if (!lifes[0])
+            GameManager.GetInstance().RebuildCurrentScene();
+
+        FindObjectOfType<LifeManager>().SetHearts(lifes);
     }
 }

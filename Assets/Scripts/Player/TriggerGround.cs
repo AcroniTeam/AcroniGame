@@ -14,5 +14,8 @@ public class TriggerGround : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         c.OnLandEvent.Invoke();
+
+        if (!collision.gameObject.name.Equals("Teleporter"))
+            Trigger.isSet = false;
     }
 }

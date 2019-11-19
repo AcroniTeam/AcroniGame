@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -102,5 +103,10 @@ public class GameManager : MonoBehaviour
         CompletedLevels++;
         currentSceneIndex++;
         SceneManager.LoadSceneAsync(currentSceneIndex);
+    }
+
+    public void RebuildCurrentScene()
+    {
+        LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
