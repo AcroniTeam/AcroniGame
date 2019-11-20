@@ -52,17 +52,20 @@ public class OnStartScene : MonoBehaviour
     {
         if (stop)
             return;
+        if(FirebaseMethods.firebaseMethods.getFirebaseUser()!=null)
         if (FirebaseMethods.firebaseMethods.getFirebaseUser().Email != string.Empty)
         {
-            try
-            {
+                stop = true;
+                try
+                {
                 welcome_username.text = "Welcome, " + FirebaseMethods.firebaseMethods.getFirebaseUser().Email.Split('@')[0];
+                    IOManager.SaveProgress();
+                    FirebaseMethods.firebaseMethods.AttDiscount(GameManager.GetInstance().EvaluateDiscount());
+                }
+           
+                            catch (System.Exception) { }
+
             }
-            catch (System.Exception) { }
-            stop = true;
-            IOManager.SaveProgress();
-            FirebaseMethods.firebaseMethods.AttDiscount(GameManager.GetInstance().EvaluateDiscount());
-        }
     }
 }
 

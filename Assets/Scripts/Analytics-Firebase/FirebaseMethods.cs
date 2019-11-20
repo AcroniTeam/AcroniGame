@@ -6,9 +6,11 @@ using Firebase.Database;
 using Firebase.Unity.Editor;
 using Firebase.Auth;
 using System.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 public class FirebaseMethods : MonoBehaviour
 {
+    public bool isLogged = false;
     FirebaseAuth auth;
     FirebaseUser currentUser;
     public static FirebaseMethods firebaseMethods = new FirebaseMethods();
@@ -16,9 +18,14 @@ public class FirebaseMethods : MonoBehaviour
     {
         auth = FirebaseAuth.DefaultInstance;
     }
+    void Start()
+    {
+        auth.StateChanged += AuthStateChanged;
+        AuthStateChanged(this, null);
+    }
     public void Logout()
     {
-        
+           
     }
     public FirebaseMethods getFireBaseMethodsInstance()
     {
@@ -32,9 +39,7 @@ public class FirebaseMethods : MonoBehaviour
     public void InitializeFirebase()
     {
         FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://analytics-7777.firebaseio.com/");
-        database = FirebaseDatabase.DefaultInstance.RootReference;
-        auth.StateChanged += AuthStateChanged;
-        AuthStateChanged(this, null);
+        database = FirebaseDatabase.DefaultInstance.RootReference;        
     }
 
     public void AttDiscount(double desconto)
@@ -44,55 +49,56 @@ public class FirebaseMethods : MonoBehaviour
     }
     private void AttUser(Task<FirebaseUser> taskbob,string signed_or_created)
     {
+        isLogged = true;
         currentUser = taskbob.Result;
         Debug.LogFormat("User {0} in successfully: {1} ({2})",
             signed_or_created, taskbob.Result.DisplayName, taskbob.Result.Email);
     }
     public bool SignUp(string email, string senha)
     {
+        bool canEnter = false;
         auth.CreateUserWithEmailAndPasswordAsync(email, senha).ContinueWith(task =>
         {
             if (task.IsCanceled)
             {
                 Debug.LogError("CreateUserWithEmailAndPasswordAsync was canceled.");
-                return false;
             }
             else if (task.IsFaulted)
             {
                 Debug.LogError("CreateUserWithEmailAndPasswordAsync encountered an error: " + task.Exception);
-                return false;
             }
             else
             {
-                AttUser(task, "created");
+                canEnter = true; AttUser(task, "created");
                 Dictionary<string, object> translater = new Dictionary<string, object>();
                 translater["qtdDesconto"] = 0.03;
                 translater["wasUsed"] = false;
                 database.Child("sample").Child("-LrQ39Kn5629t6fgDYpA").Child("game").Child("descontos").Child(email.Replace(".", ",")).UpdateChildrenAsync(translater);
                 //não pode '.' em nome de node no firebase, ai vai ter q substituir no ASP para achar por ,
-                return Login(email, senha);
             }
         });
-        return Login(email, senha);
+        if (canEnter)
+            return Login(email, senha);
+        else
+            return false;
     }
 
     public bool Login(string email,string senha)
     {
+        bool canEnter = false;
         auth.SignInWithEmailAndPasswordAsync(email, senha).ContinueWith(task => {
             if (task.IsCanceled)
             {
                 Debug.LogError("SignInWithEmailAndPasswordAsync was canceled.");
-                return false;
             }
-            if (task.IsFaulted)
+            else if (task.IsFaulted)
             {
                 Debug.Log("SignInWithEmailAndPasswordAsync encountered an error: " + task.Exception);
-                return false;
             }
-            AttUser(task, "signed");
-            return true;
+            else {  canEnter = true; Debug.Log(canEnter);
+                AttUser(task, "signed"); }
         });
-        return true;
+        return canEnter;
     }
     public void IncrementQttItems(string item)
     {
