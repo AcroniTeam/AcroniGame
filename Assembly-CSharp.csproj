@@ -44,13 +44,6 @@
     <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
-  <PropertyGroup>
-    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
-    <UnityProjectType>Game:1</UnityProjectType>
-    <UnityBuildTarget>Android:13</UnityBuildTarget>
-    <UnityVersion>2018.3.5f1</UnityVersion>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2018.3.5f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -757,16 +750,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.2D.Tilemap.Extras.Editor.csproj">
-      <Project>{5820D42D-9D65-6D10-3B81-293E20024821}</Project>
-      <Name>Unity.2D.Tilemap.Extras.Editor</Name>
-    </ProjectReference>
+      <Project>{5820D42D-9D65-6D10-3B81-293E20024821}</Project>      <Name>Unity.2D.Tilemap.Extras.Editor</Name>    </ProjectReference>
     <ProjectReference Include="Unity.2D.Tilemap.Extras.csproj">
-      <Project>{E255AE7A-A395-A41F-612B-1D7A92554C42}</Project>
-      <Name>Unity.2D.Tilemap.Extras</Name>
-    </ProjectReference>
+      <Project>{E255AE7A-A395-A41F-612B-1D7A92554C42}</Project>      <Name>Unity.2D.Tilemap.Extras</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -774,4 +762,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  
 </Project>
