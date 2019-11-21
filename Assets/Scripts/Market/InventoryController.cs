@@ -2,79 +2,142 @@
 using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class InventoryController : MonoBehaviour
 {
     static InventoryController inventoryController;
 
-    public PopUpInventory popUp1item;
-    public PopUpInventory popUp2item;
-    public PopUpInventory popUp3item;
+    public SlotController visibleSlot;
+    public SlotController[] inventorySlots;
+
+    int selectedSlot = 0;
+
+    void Start()
+    {
+        inventoryController = this;
+    }
 
     public void AddItem(InventoryItem item)
     {
-        popUp1item.FillSlots(item);
-        popUp2item.FillSlots(item);
-        //popUp3item.FillSlots(item);
-        if(!popUp1item.GetSlot(0).IsEmpty())
+        foreach(SlotController s in inventorySlots)
         {
-            InventoryPopUpController.GetPopUpController().Release(0);
+            if(s.IsEmpty() || s.Equals(item))
+            {
+                s.Fill(item);
+                break;
+            }
         }
+
+        if (visibleSlot.IsEmpty() || visibleSlot.Equals(item))
+            visibleSlot.Fill(item);
     }
 
     public void UpdateUI()
     {
-        //if (current_slot.GetQuantity() == 0)
+        //for (int i = 0; i < inventorySlots.Length; i++)
         //{
-        //    if (next_slot.GetQuantity() > 0 && previous_slot.GetQuantity() > 0)
+        //    if (inventorySlots[i].Equals(visibleSlot.Item_reference))
         //    {
-        //        next_controller_copy.Fill(previous_slot.item_reference);
-        //        InventoryPopUpController.GetPopUpController().SwitchInventories();
-        //        InventoryPopUpController.GetPopUpController().BlockInventory(1);
-        //        current_slot.Fill(next_slot.item_reference);
-        //        next_slot.Clear();
-        //        previous_slot.Clear();
-        //    }
-        //    else if (next_controller_copy.GetQuantity() > 0)
-        //    {
-        //        InventoryPopUpController.GetPopUpController().SwitchInventories();
-        //        InventoryPopUpController.GetPopUpController().BlockInventory(0);
-        //        current_slot.Fill(next_controller_copy.item_reference);
-        //        next_controller_copy.Clear();
-        //    } else
-        //    {
-        //        next_controller_copy.Clear();
-        //        InventoryPopUpController.GetPopUpController().BlockInventory(0);
-        //        current_slot.Clear();
+        //        inventorySlots[i].DecreseQuantityFromSlot();
+        //        break;
         //    }
         //}
-        //else if (next_slot.GetQuantity() > 0 || previous_slot.GetQuantity() > 0)
+
+        //if (visibleSlot.GetQuantity() > 0)
         //{
-        //    if (next_slot.GetQuantity() > 0 && previous_slot.GetQuantity() > 0)
+        //    for (int i = 0; i < 3; i++)
         //    {
-        //        InventoryPopUpController.GetPopUpController().Release(1);
+        //        if (inventorySlots[i].GetQuantity() == 0)
+        //        {
+        //            if(!inventorySlots[i].IsEmpty())
+        //            {
+        //                inventorySlots[i].Fill(inventorySlots[i + 1].Item_reference);
+        //                inventorySlots[i].SetSelected(inventorySlots[i + 1].IsSelected());
+        //                inventorySlots[i + 1].Clear();
+        //            }else
+        //            {
+        //                inventorySlots[i].Clear();
+        //                inventorySlots[i + 1].Clear();
+        //            }
+        //        }
         //    }
-        //    else if (next_slot.GetQuantity() == 0 && previous_slot.GetQuantity() > 0)
-        //    {
-        //        next_controller_copy.Fill(previous_slot.item_reference);
-        //        InventoryPopUpController.GetPopUpController().BlockInventory(1);
-        //        InventoryPopUpController.GetPopUpController().SwitchInventories();
-        //        next_slot.Clear();
-        //        previous_slot.Clear();
-        //    }
-        //    else if (next_slot.GetQuantity() > 0 && previous_slot.GetQuantity() == 0)
-        //    {
-        //        next_controller_copy.Fill(next_slot.item_reference);
-        //        InventoryPopUpController.GetPopUpController().BlockInventory(1);
-        //        InventoryPopUpController.GetPopUpController().SwitchInventories();
-        //        previous_slot.Clear();
-        //        next_slot.Clear();
-        //    }
-        //} else if (next_controller_copy.GetQuantity() == 0) {
-        //    InventoryPopUpController.GetPopUpController().BlockInventory(0);
-        //    InventoryPopUpController.GetPopUpController().SwitchInventories();
-        //    next_controller_copy.Clear();
         //}
+        //else
+        //{
+        //    for (int i = 0; i < 3; i++)
+        //    {
+        //        if (inventorySlots[i].GetQuantity() == 0)
+        //        {
+        //            if (!inventorySlots[i].IsEmpty())
+        //            {
+        //                inventorySlots[i].Fill(inventorySlots[i + 1].Item_reference);
+        //                inventorySlots[i].SetSelected(inventorySlots[i + 1].IsSelected());
+        //                inventorySlots[i + 1].Clear();
+        //            }
+        //            else
+        //            {
+        //                inventorySlots[i].Clear();
+        //                inventorySlots[i + 1].Clear();
+        //            }
+        //        }
+        //    }
+        //    if (inventorySlots[0].GetQuantity() > 0)
+        //    {
+        //        visibleSlot.Fill(inventorySlots[0].Item_reference);
+        //        inventorySlots[0].SetSelected(true);
+        //    }
+        //}
+
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            if (inventorySlots[i].Equals(visibleSlot.Item_reference) && i != selectedSlot)
+            {
+                inventorySlots[i].DecreseQuantityFromSlot();
+                break;
+            }
+        }
+
+        if (visibleSlot.GetQuantity() == 0)
+        {
+            foreach (SlotController slot in inventorySlots)
+            {
+                if (slot.GetQuantity() > 0)
+                {
+                    visibleSlot.Fill(slot.Item_reference);
+                    Debug.Log("Cleaned " + slot.Item_reference.GetName());
+                    slot.Clear();
+                    slot.SetSelected(false);
+                    break;
+                }
+                visibleSlot.Clear();
+            }
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (inventorySlots[i].GetQuantity() == 0)
+            {
+                if (inventorySlots[i + 1].GetQuantity() > 0)
+                {
+                    inventorySlots[i].Fill(inventorySlots[i + 1].Item_reference);
+                    inventorySlots[i].SetSelected(true);
+                    Debug.Log("Cleaned " + inventorySlots[i + i].Item_reference.GetName());
+                    inventorySlots[i + 1].Clear();
+                    inventorySlots[i + 1].SetSelected(false);
+                }
+            }
+        }
+
+        foreach (SlotController sl in inventorySlots)
+        {
+            if (sl.GetQuantity() == 0)
+            {
+                Debug.Log("Cleaned " + sl.Item_reference.GetName());
+                sl.Clear();
+                sl.SetSelected(false);
+            }
+        }
     }
 
     public static InventoryController GetInventoryController()
@@ -110,11 +173,22 @@ public class InventoryController : MonoBehaviour
     public void SetInteractible(bool interacbility)
     {
         interactible = interacbility;
-        //current_slot.SetEnabled(interacbility);
+        visibleSlot.SetEnabled(interacbility);
     }
 
-    void Start()
+    public void SetVisibleSlotItem(InventoryItem Item_reference)
     {
-        inventoryController = this;
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            if (inventorySlots[i].Equals(Item_reference))
+            {
+                selectedSlot = i;
+                inventorySlots[i].SetSelected(true);
+                break;
+            }
+            else if (inventorySlots[i].IsSelected() && i != selectedSlot)
+                inventorySlots[i].SetSelected(false);
+        }
+        visibleSlot.Fill(Item_reference);
     }
 }
