@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,8 +16,8 @@ public class SceneTransition : MonoBehaviour
     }
 
     AsyncOperation asy;
-    public IEnumerator LoadAsync()
-    {
+     public IEnumerator LoadAsync() {
+
         asy = SceneManager.LoadSceneAsync("Menu_Principal");
         asy.allowSceneActivation = false;
 

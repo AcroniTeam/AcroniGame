@@ -38,7 +38,13 @@ public class OnStartScene : MonoBehaviour
         {
             AudioManager.GetInstance().Stop(AudioManager.GetInstance().GetCurrentBGM());
             AudioManager.GetInstance().Play(MusicName);
-        }  
+        }
+
+        try
+        {
+            InventoryPopUpController.GetPopUpController().Block();
+        }
+        catch { }     
     }
 
     bool stop = false;
