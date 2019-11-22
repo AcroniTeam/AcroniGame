@@ -92,14 +92,11 @@ public class Movimento : MonoBehaviour
             Player.getInstance().GetPlayerMovement().EnableMovement();
         }
     }
-    void OnLanding()
-    {
-        canMove = true;
-    }
+    
         public void OnCollisionEnter2D(Collision2D collider2d)
     {
         
-        if (collider2d.gameObject.tag.Equals("trampoline")&&(collider2d.collider is PolygonCollider2D))
+        if (collider2d.gameObject.tag.Equals("trampoline")&&!(collider2d.collider is PolygonCollider2D))
         {
             if (isJumping)
             {
