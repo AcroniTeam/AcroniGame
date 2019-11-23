@@ -35,6 +35,7 @@ public class Store : MonoBehaviour
 
     public void Open()
     {
+        animator.SetTrigger("CanAnimate");
         isOpen = true;
         try
         {
@@ -46,6 +47,7 @@ public class Store : MonoBehaviour
 
     public void Close()
     {
+        animator.SetTrigger("CanAnimate");
         isOpen = false;
         try
         {
