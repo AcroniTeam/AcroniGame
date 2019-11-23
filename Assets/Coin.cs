@@ -12,12 +12,9 @@ public class Coin : MonoBehaviour
     {
         if (HasTaken)
             return;
-
-        HasTaken = true;
-
         if (other.gameObject.CompareTag("Player"))
         {
-      
+            HasTaken = true;
             int current = Player.getInstance().AddPlayerCurrency(coinValue);
             Store.GetInstance().SetCurrencyDisplay(current);
             Destroy(gameObject);

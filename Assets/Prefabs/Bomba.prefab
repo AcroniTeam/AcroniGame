@@ -70,7 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bomba: {fileID: 5455247505733002057}
   radius: 6.95
-  power: 20
+  power: 6
   explosionAnim: {fileID: 0}
 --- !u!212 &5455247505733002058
 SpriteRenderer:
