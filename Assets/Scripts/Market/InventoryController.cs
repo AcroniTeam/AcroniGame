@@ -6,75 +6,83 @@ using TMPro;
 public class InventoryController : MonoBehaviour
 {
     static InventoryController inventoryController;
-
-    public PopUpInventory popUp1item;
-    public PopUpInventory popUp2item;
-    public PopUpInventory popUp3item;
+    public SlotController main_slot;
+    public InventorySlot[] slots;
 
     public void AddItem(InventoryItem item)
-    {
-        popUp1item.FillSlots(item);
-        popUp2item.FillSlots(item);
-        //popUp3item.FillSlots(item);
-        if(!popUp1item.GetSlot(0).IsEmpty())
+    {        
+        foreach(InventorySlot slot in slots)
         {
-            InventoryPopUpController.GetPopUpController().Release(0);
+            if(slot.Equals(item) || slot.IsEmpty())
+            {
+                slot.Fill(item);
+                if (main_slot.IsEmpty())
+                {
+                    slot.SetSelected(true);
+                    main_slot.Fill(item);
+                }
+                break;
+            }
         }
     }
 
     public void UpdateUI()
     {
-        //if (current_slot.GetQuantity() == 0)
-        //{
-        //    if (next_slot.GetQuantity() > 0 && previous_slot.GetQuantity() > 0)
-        //    {
-        //        next_controller_copy.Fill(previous_slot.item_reference);
-        //        InventoryPopUpController.GetPopUpController().SwitchInventories();
-        //        InventoryPopUpController.GetPopUpController().BlockInventory(1);
-        //        current_slot.Fill(next_slot.item_reference);
-        //        next_slot.Clear();
-        //        previous_slot.Clear();
-        //    }
-        //    else if (next_controller_copy.GetQuantity() > 0)
-        //    {
-        //        InventoryPopUpController.GetPopUpController().SwitchInventories();
-        //        InventoryPopUpController.GetPopUpController().BlockInventory(0);
-        //        current_slot.Fill(next_controller_copy.item_reference);
-        //        next_controller_copy.Clear();
-        //    } else
-        //    {
-        //        next_controller_copy.Clear();
-        //        InventoryPopUpController.GetPopUpController().BlockInventory(0);
-        //        current_slot.Clear();
-        //    }
-        //}
-        //else if (next_slot.GetQuantity() > 0 || previous_slot.GetQuantity() > 0)
-        //{
-        //    if (next_slot.GetQuantity() > 0 && previous_slot.GetQuantity() > 0)
-        //    {
-        //        InventoryPopUpController.GetPopUpController().Release(1);
-        //    }
-        //    else if (next_slot.GetQuantity() == 0 && previous_slot.GetQuantity() > 0)
-        //    {
-        //        next_controller_copy.Fill(previous_slot.item_reference);
-        //        InventoryPopUpController.GetPopUpController().BlockInventory(1);
-        //        InventoryPopUpController.GetPopUpController().SwitchInventories();
-        //        next_slot.Clear();
-        //        previous_slot.Clear();
-        //    }
-        //    else if (next_slot.GetQuantity() > 0 && previous_slot.GetQuantity() == 0)
-        //    {
-        //        next_controller_copy.Fill(next_slot.item_reference);
-        //        InventoryPopUpController.GetPopUpController().BlockInventory(1);
-        //        InventoryPopUpController.GetPopUpController().SwitchInventories();
-        //        previous_slot.Clear();
-        //        next_slot.Clear();
-        //    }
-        //} else if (next_controller_copy.GetQuantity() == 0) {
-        //    InventoryPopUpController.GetPopUpController().BlockInventory(0);
-        //    InventoryPopUpController.GetPopUpController().SwitchInventories();
-        //    next_controller_copy.Clear();
-        //}
+        foreach(InventorySlot ins in slots)
+        {
+            if (ins.item_reference == null)
+                continue;
+
+            Debug.Log("n_" + ins.name);
+            if(ins.Equals(main_slot.item_reference))
+            {
+                Debug.Log("q_"+ins.item_reference.GetQuantity());
+                ins.DecreaseQuantity();
+                break;
+            }
+        }
+
+        if(main_slot.GetQuantity() == 0 || main_slot.IsEmpty())
+        {
+            main_slot.Clear();
+            int i;
+            for(i = 0; i < 3; i++)
+            {
+                if(slots[i].GetQuantity() <= 0)
+                {
+                    Debug.Log(slots[i].name);
+                    if(slots[i+1].GetQuantity() > 0)
+                    {
+                        Debug.Log(slots[i+1].name + " " + slots[i+1].item_quantity);
+                        slots[i].Fill(slots[i + 1].item_reference);
+                        slots[i + 1].Clear();
+                    }else if(i != 0 && slots[i-1].GetQuantity() > 0)
+                    {
+                        slots[i - 1].SetSelected(slots[i].isSelected());
+                        slots[i - 1].Fill(slots[i].item_reference);
+                        slots[i].Clear();
+                    } 
+                }
+            }
+
+            main_slot.Fill(System.Array.Find(slots, slot => slot.isSelected()).item_reference);
+        }
+    }
+
+    public void SetSelected(InventoryItem item)
+    {
+        foreach(InventorySlot invSlot in slots)
+        {
+            if (invSlot.item_reference == null)
+                continue;
+
+            if (invSlot.item_reference.Equals(item))
+                invSlot.SetSelected(true);
+            else
+                invSlot.SetSelected(false);
+        }
+
+        main_slot.Fill(item);
     }
 
     public static InventoryController GetInventoryController()
@@ -110,7 +118,7 @@ public class InventoryController : MonoBehaviour
     public void SetInteractible(bool interacbility)
     {
         interactible = interacbility;
-        //current_slot.SetEnabled(interacbility);
+        main_slot.SetEnabled(interacbility);
     }
 
     void Start()
