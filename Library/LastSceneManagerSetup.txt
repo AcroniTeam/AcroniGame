@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/aerea_puzzles.unity
+- path: Assets/Scenes/bomb-loading_scene.unity
   isLoaded: 1
   isActive: 1

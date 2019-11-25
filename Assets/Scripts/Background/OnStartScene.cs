@@ -46,7 +46,7 @@ public class OnStartScene : MonoBehaviour
     {
         if (stop)
             return;
-        if (FirebaseMethods.firebaseMethods.getFirebaseUser().Email != string.Empty)
+        //if (FirebaseMethods.firebaseMethods.getFirebaseUser().Email != string.Empty)
         {
             try
             {

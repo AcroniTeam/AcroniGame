@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public float LevelQuantity = 0;
     public float CompletedLevels = 0;
 
-    int currentSceneIndex = 1;    
+    int currentSceneIndex = 2;    
 
     PlayerData playerData;
 
@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
             gameManager = this;
 
         DontDestroyOnLoad(this);
+
 
         try
         {
@@ -68,18 +69,29 @@ public class GameManager : MonoBehaviour
         isLevelOver = true;
     }
 
+    IEnumerator SceneTransitor()
+    {
+        TransitionAnimation.getInstance().EndAnim();
+        yield return new WaitForSeconds(0.8f);
+        LoadScene("bomb-loading_scene");
+    }
+
     public void StartGame()
     {
         AudioManager.GetInstance().Stop("bgm-ada_theme");
-        LoadScene(currentSceneIndex);
+        SceneTransition.indextoBuild = currentSceneIndex;
+        StartCoroutine(SceneTransitor());
+        //TransitionAnimation.getInstance().EndAnim();
+        //LoadScene("bomb-loading_scene");
     }
 
     public void RestartGame()
     {
         IOManager.ResetData();
-        currentSceneIndex = 1;
+        currentSceneIndex = 2;
         CompletedLevels = 0;
         LoadScene(0);
+        SceneTransition.indextoBuild = 1;
     }
 
     public int EvaluateDiscount()
@@ -102,7 +114,10 @@ public class GameManager : MonoBehaviour
     {
         CompletedLevels++;
         currentSceneIndex++;
-        SceneManager.LoadSceneAsync(currentSceneIndex);
+        SceneTransition.indextoBuild = currentSceneIndex;
+        //transitionAnim.SetTrigger("end");
+        //SceneManager.LoadSceneAsync("bomb-loading_scene");
+        StartCoroutine(SceneTransitor());
     }
 
     public void RebuildCurrentScene()
