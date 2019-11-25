@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour
 {
+    public static int indextoBuild = 1;
+
     private void Start()
     {
         StartCoroutine(LoadAsync());
@@ -18,7 +20,7 @@ public class SceneTransition : MonoBehaviour
     AsyncOperation asy;
      public IEnumerator LoadAsync() {
 
-        asy = SceneManager.LoadSceneAsync("Menu_Principal");
+        asy = SceneManager.LoadSceneAsync(indextoBuild);
         asy.allowSceneActivation = false;
 
         yield return null;
