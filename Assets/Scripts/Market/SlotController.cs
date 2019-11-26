@@ -8,12 +8,12 @@ public class SlotController : MonoBehaviour
     //EXTERNAL REFENRENCES
     public Animator imageAnimator;
     public TextMeshProUGUI item_quantity;
-    public SlotType slotType;
+    public BoxCollider2D interactible_box;
+    public BoxCollider2D box_checktrigger;
+
+    public SlotType slotType;    
     public RectTransform rect;
 
-    //PRIVATE VARIABLES
-    public BoxCollider2D box_checktrigger;
-    public BoxCollider2D box_holdable;
     string slot_item;
     bool isEmpty = true;
     Vector3 startPoint;
@@ -25,10 +25,10 @@ public class SlotController : MonoBehaviour
     #region SlotController Methods
 
     public void Fill(InventoryItem slot)
-    {  
+    {
         slot_item = slot.GetName();
 
-        imageAnimator.SetBool("BeDefault",false);
+        imageAnimator.SetBool("BeDefault", false);
         imageAnimator.SetTrigger(slot_item);
         
         item_quantity.text = slot.GetQuantity().ToString();
@@ -77,7 +77,7 @@ public class SlotController : MonoBehaviour
                 SpecialBlockTilemap.GetSpecialBlockTilemap().GetTilemap().RefreshAllTiles();
                 break;
             default:
-                Instantiate(ItemFactory.GetFactory().ProduceItem(itemName), p_position /*+ offset */, Quaternion.identity);
+                Instantiate(ItemFactory.GetFactory().ProduceItem(itemName), p_position + new Vector3(0,0,2) , Quaternion.identity);
                 break;
         }
 
@@ -136,7 +136,9 @@ public class SlotController : MonoBehaviour
 
                 if (item_quantity.text.Equals("0"))
                 {
+                    isMoving = false;
                     InventoryController.GetInventoryController().UpdateUI();
+
                     return;
                 }
             }
@@ -145,10 +147,12 @@ public class SlotController : MonoBehaviour
             return;
         }
 
-        Vector3 position = Input.touchCount == 2? Input.GetTouch(1).position : Input.GetTouch(0).position;
+        Vector3 position;
+        position = Input.touchCount == 2 ? Input.GetTouch(1).position : Input.GetTouch(0).position;
+
         //position = Camera.main.ScreenToWorldPoint(position);
 
-        if (box_holdable.OverlapPoint(position) || isMoving)
+        if (interactible_box.OverlapPoint(position) || isMoving)
         {
             if(!isBeingHeld)
             {

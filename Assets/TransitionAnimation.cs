@@ -20,13 +20,12 @@ public class TransitionAnimation : MonoBehaviour
 
     void Start()
     {
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(transition);
         SceneManager.sceneLoaded += OnSceneLoaded;  
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-
         if (scene.name != "bomb-loading_scene" && scene.name != "Menu_principal")
             transitionAnim.SetTrigger("start");
     }

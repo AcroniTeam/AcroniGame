@@ -658,7 +658,7 @@ MonoBehaviour:
     pitch: 1
     dimension: 0
     loop: 1
-  - clip: {fileID: 8300000, guid: 59bb800ff860d26498a3f7a50369f92f, type: 3}
+  - clip: {fileID: 8300000, guid: 93d146b290fee9b43b6bf2f30c8b5c4d, type: 3}
     source: {fileID: 0}
     name: sfx-explosion
     volume: 0.3
@@ -685,6 +685,111 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     dimension: 0
+    loop: 1
+  - clip: {fileID: 8300000, guid: 5b542b2dc0b51144e871dd7dd032cd3a, type: 3}
+    source: {fileID: 0}
+    name: sfx-dano
+    volume: 1
+    pitch: 1
+    dimension: 0
+    loop: 0
+  - clip: {fileID: 8300000, guid: 48c7d6687a1bb4e449e17c83df1f4ddc, type: 3}
+    source: {fileID: 0}
+    name: sfx-fim_da_fase
+    volume: 1
+    pitch: 1
+    dimension: 0
+    loop: 0
+  - clip: {fileID: 8300000, guid: a9a4be37dfdd9124682055e54da19e22, type: 3}
+    source: {fileID: 0}
+    name: sfx-drag
+    volume: 1
+    pitch: 1
+    dimension: 0
+    loop: 0
+  - clip: {fileID: 8300000, guid: 2845d258121ee50468fd25a911287f7c, type: 3}
+    source: {fileID: 0}
+    name: sfx-drop
+    volume: 1
+    pitch: 1
+    dimension: 0
+    loop: 0
+  - clip: {fileID: 8300000, guid: fb1771ad1853e634cbb0c3313e220f31, type: 3}
+    source: {fileID: 0}
+    name: sfx-morte
+    volume: 1
+    pitch: 1
+    dimension: 0
+    loop: 0
+  - clip: {fileID: 8300000, guid: 9ede8db9e6c9a3549a58ce6e7cd8eb9e, type: 3}
+    source: {fileID: 0}
+    name: sfx-jump
+    volume: 1
+    pitch: 1
+    dimension: 0
+    loop: 0
+  - clip: {fileID: 8300000, guid: 619c3b046a50f394da04802c10723399, type: 3}
+    source: {fileID: 0}
+    name: sfx-button_default
+    volume: 1
+    pitch: 1
+    dimension: 0
+    loop: 0
+  - clip: {fileID: 8300000, guid: a6ec005480b63974894f719bdfc00840, type: 3}
+    source: {fileID: 0}
+    name: sfx-play_button
+    volume: 1
+    pitch: 1
+    dimension: 0
+    loop: 0
+  - clip: {fileID: 8300000, guid: 8ffa403c53d13c04190a64194698e6d2, type: 3}
+    source: {fileID: 0}
+    name: sfx-coin
+    volume: 1
+    pitch: 1
+    dimension: 0
+    loop: 0
+  - clip: {fileID: 8300000, guid: 4b66f9a526af6b94696faf0ce0c2fad6, type: 3}
+    source: {fileID: 0}
+    name: sfx-compra
+    volume: 1
+    pitch: 1
+    dimension: 0
+    loop: 0
+  - clip: {fileID: 8300000, guid: bb34dd059c9bea9499869b97de873989, type: 3}
+    source: {fileID: 0}
+    name: sfx-pause_button
+    volume: 1
+    pitch: 1
+    dimension: 0
+    loop: 0
+  - clip: {fileID: 8300000, guid: 0b11acec344d73641b1e2775c21332ba, type: 3}
+    source: {fileID: 0}
+    name: sfx-loading_screen
+    volume: 1
+    pitch: 1
+    dimension: 0
+    loop: 0
+  - clip: {fileID: 8300000, guid: 2f45081af4483834a8e2befa54b653c2, type: 3}
+    source: {fileID: 0}
+    name: sfx-bird_flight
+    volume: 1
+    pitch: 1
+    dimension: 0
+    loop: 0
+  - clip: {fileID: 8300000, guid: f726c6d1555d2fb4c809242ce4f425b3, type: 3}
+    source: {fileID: 0}
+    name: sfx-enter_portal
+    volume: 1
+    pitch: 1
+    dimension: 0
+    loop: 0
+  - clip: {fileID: 8300000, guid: 57c85e3834597c747a4c28ecaab318f5, type: 3}
+    source: {fileID: 0}
+    name: sfx-portal_sound
+    volume: 1
+    pitch: 1
+    dimension: 1
     loop: 1
 --- !u!4 &1625457152
 Transform:
