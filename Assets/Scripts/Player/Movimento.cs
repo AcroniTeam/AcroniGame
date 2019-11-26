@@ -34,7 +34,9 @@ public class Movimento : MonoBehaviour
                 isJumping = true;
                 animator.SetBool("IsJumping", true);
             }
-        }else {
+        }
+        else
+        {
             animator.SetFloat("Speed", 0);
             movHoriz = 0f;
         }
@@ -43,7 +45,7 @@ public class Movimento : MonoBehaviour
     bool canMove = true;
     public Vector3 getMovementVector()
     {
-        return new Vector3(Input.GetAxis("Horizontal")*Time.deltaTime, 0.0f, Input.GetAxis("Vertical")*Time.deltaTime);
+        return new Vector3(Input.GetAxis("Horizontal") * Time.deltaTime, 0.0f, Input.GetAxis("Vertical") * Time.deltaTime);
     }
     public void EnableMovement()
     {
@@ -92,11 +94,14 @@ public class Movimento : MonoBehaviour
             Player.getInstance().GetPlayerMovement().EnableMovement();
         }
     }
-    
-        public void OnCollisionEnter2D(Collision2D collider2d)
+    void OnLanding()
     {
-        
-        if (collider2d.gameObject.tag.Equals("trampoline")&&!(collider2d.collider is PolygonCollider2D))
+        canMove = true;
+    }
+    public void OnCollisionEnter2D(Collision2D collider2d)
+    {
+
+        if (collider2d.gameObject.tag.Equals("trampoline") && (collider2d.collider is PolygonCollider2D))
         {
             if (isJumping)
             {
@@ -127,7 +132,7 @@ public class Movimento : MonoBehaviour
                 if (!isJumping)
                     rdb.velocity = Vector3.zero;
         }
-            
+
         pular = false;
     }
 }

@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -521592857
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 28c7bf2c1155ee442ad8d0c34700006a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -125,7 +125,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6296557306075586639}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -141,7 +141,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6296557306075586639}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -163,7 +163,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.002552271, y: 0.24824846}
+  m_Offset: {x: 0.0017181635, y: -0.3039286}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -174,7 +174,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1639397, y: 0.31520927}
+  m_Size: {x: 1.9070015, y: 0.3558792}
   m_EdgeRadius: 0
 --- !u!60 &8822035954345441431
 PolygonCollider2D:
@@ -201,9 +201,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.79605407, y: 0.081502676}
+    - - {x: 0.12586269, y: -0.19359946}
+      - {x: -0.87750447, y: -0.19173568}
       - {x: -0.830067, y: 0.061979413}
-      - {x: -1, y: -0.5}
-      - {x: 0.99988204, y: -0.4939348}
-      - {x: 0.84826154, y: 0.0680446}
-      - {x: 0.6951651, y: 0.07543737}
+      - {x: -0.646434, y: 0.28007615}
+      - {x: -0.39354688, y: 0.43994498}
+      - {x: 0.46174797, y: 0.42892027}
+      - {x: 0.70717114, y: 0.25422558}
+      - {x: 0.9349514, y: -0.1591863}
+      - {x: 0.6206877, y: -0.1610902}

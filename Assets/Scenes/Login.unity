@@ -1303,6 +1303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   login: {fileID: 134318531}
   senha: {fileID: 1794592015}
+  scene: Login
 --- !u!114 &633500893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1807,6 +1808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   login: {fileID: 134318531}
   senha: {fileID: 1794592015}
+  scene: Login
 --- !u!114 &1581624413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2451,6 +2453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   login: {fileID: 0}
   senha: {fileID: 0}
+  scene: 
 --- !u!114 &2037132748
 MonoBehaviour:
   m_ObjectHideFlags: 0

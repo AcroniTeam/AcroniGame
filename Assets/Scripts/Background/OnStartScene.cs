@@ -52,8 +52,10 @@ public class OnStartScene : MonoBehaviour
     {
         if (stop)
             return;
-        //if (FirebaseMethods.firebaseMethods.getFirebaseUser().Email != string.Empty)
-        {
+        if (FirebaseMethods.firebaseMethods.getFirebaseUser() != null)
+            if (FirebaseMethods.firebaseMethods.getFirebaseUser().Email != string.Empty)
+            {
+                stop = true;
             try
             {
                 welcome_username.text = "Welcome, " + FirebaseMethods.firebaseMethods.getFirebaseUser().Email.Split('@')[0];
