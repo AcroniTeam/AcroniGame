@@ -25,7 +25,8 @@ public class ItemManager : MonoBehaviour
         {
             int current = Player.getInstance().RemoveFromPlayerCurrency(item.cost);
             Store.GetInstance().SetCurrencyDisplay(current);
-
+            LevelCompletedMenu.GetInstance().SetMoneyText(current);
+            AudioManager.GetInstance().Play("sfx-compra");
             Player.getInstance().GetPlayerInventory().InsertItem(item);
         }
     }

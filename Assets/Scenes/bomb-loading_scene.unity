@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14885c5f1a738fa45b661a5c1756e1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicName: bgm-ada_theme
+  MusicName: 
   welcome_username: {fileID: 0}
   SceneType: 0
   canvas: {fileID: 0}
@@ -157,7 +157,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &917736507
 GameObject:
@@ -414,132 +414,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c118fe1b9c605ab499317065b8290ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1625457150
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1625457152}
-  - component: {fileID: 1625457151}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1625457151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1625457150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec83c4a00e085b64aa4e039756e9493a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - clip: {fileID: 8300000, guid: 30a951539e15be045904cd6e13183e10, type: 3}
-    source: {fileID: 0}
-    name: bgm-aero_plano
-    volume: 0.5
-    pitch: 1
-    dimension: 0
-    loop: 1
-  - clip: {fileID: 8300000, guid: 59bb800ff860d26498a3f7a50369f92f, type: 3}
-    source: {fileID: 0}
-    name: sfx-explosion
-    volume: 0.3
-    pitch: 1
-    dimension: 0.5
-    loop: 0
-  - clip: {fileID: 8300000, guid: 0c67f08a55a870e409651513b18a443d, type: 3}
-    source: {fileID: 0}
-    name: bgm-ada_theme
-    volume: 1
-    pitch: 1
-    dimension: 0
-    loop: 1
-  - clip: {fileID: 8300000, guid: 4fc596364770b6b428703bdbc2ca4359, type: 3}
-    source: {fileID: 0}
-    name: bgm-anima_lacum
-    volume: 1
-    pitch: 1
-    dimension: 0
-    loop: 1
-  - clip: {fileID: 8300000, guid: 289979b40ba8b71409bcde64ca5012c7, type: 3}
-    source: {fileID: 0}
-    name: bgm-wave
-    volume: 1
-    pitch: 1
-    dimension: 0
-    loop: 1
---- !u!4 &1625457152
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1625457150}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.6638734, y: 0.92458826, z: 1.7263588}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1890284066
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1890284068}
-  - component: {fileID: 1890284067}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1890284067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1890284066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6eda11db9f1dbea459dc891c8d65bf07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minimunDiscount: 3
-  maximunDiscount: 17
-  LevelQuantity: 0
-  CompletedLevels: 0
---- !u!4 &1890284068
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1890284066}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 393, y: 221, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2001087534
 GameObject:
   m_ObjectHideFlags: 0

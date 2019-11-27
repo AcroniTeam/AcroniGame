@@ -12,6 +12,11 @@ public class SceneTransition : MonoBehaviour
         StartCoroutine(LoadAsync());
     }
 
+    public void StartAudio()
+    {
+        AudioManager.GetInstance().Play("bgm-loading_screen");
+    }
+
     public void CallAsync()
     {
         asy.allowSceneActivation = true;

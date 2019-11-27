@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Experimental.UIElements;
+using static UnityEngine.UI.Slider;
 
 public class AudioManager : MonoBehaviour
 {
@@ -28,11 +29,13 @@ public class AudioManager : MonoBehaviour
         {
             sound.source = gameObject.AddComponent<AudioSource>();
             sound.source.clip = sound.clip;
-            sound.source.volume = sound.volume;
             sound.source.pitch = sound.pitch;
             sound.source.loop = sound.loop;
             sound.source.name = sound.name;
             sound.source.spatialBlend = sound.dimension;
+
+            if(sound.name.StartsWith("sfx"))
+                sound.source.volume = 0.5f;
         }
     }
 
@@ -54,9 +57,51 @@ public class AudioManager : MonoBehaviour
         if (sound == null)
             return;
 
+        if (audio_name == currentBgmName)
+            return;
+
         if (audio_name.StartsWith("bgm"))
-            currentBgmName = audio_name;
-        sound.source.Play();
+            StartCoroutine(FadeInOut(sound));
+        else
+            sound.source.Play();
+    }
+
+    IEnumerator FadeInOut(Sound transit_to)
+    {
+        Sound c_bgm = Array.Find(sounds, s => s.name == currentBgmName);
+        if (c_bgm != null)
+        {
+            for (float i = SliderController.bgm_volume; i >= 0; i-=0.1f)
+            {
+                if(i < 0)
+                {
+                    c_bgm.source.volume = 0;
+                    break;
+                }
+
+                c_bgm.source.volume = i;
+                //Debug.Log("diminuindo o volume de " + c_bgm.name + " para " + c_bgm.source.volume);
+                yield return null;
+            }
+            c_bgm.source.Stop();
+        }
+
+        transit_to.source.volume = 0;
+        transit_to.source.Play();
+        for (float i = 0; i <= SliderController.bgm_volume; i+=0.1f)
+        {
+            if (i > SliderController.bgm_volume)
+            {
+                transit_to.source.volume = SliderController.bgm_volume;
+                break;
+            }
+
+            transit_to.source.volume = i;
+            //Debug.Log("aumentando o volume de " + transit_to.name + " para "+ transit_to.source.volume);
+            yield return null;
+        }
+
+        currentBgmName = transit_to.name;
     }
 
     public void Stop(string audio_name)
@@ -109,5 +154,23 @@ public class AudioManager : MonoBehaviour
     public string GetCurrentBGM()
     {
         return currentBgmName;
+    }
+
+    public void SetVolumeBGM(float f)
+    {
+        foreach(Sound s in sounds)
+        {
+            if (s.name.StartsWith("bgm"))
+                s.source.volume = f;
+        }
+    }
+
+    public void SetVolumeSFX(float f)
+    {
+        foreach (Sound s in sounds)
+        {
+            if (s.name.StartsWith("sfx"))
+                s.source.volume = f;
+        }
     }
 }

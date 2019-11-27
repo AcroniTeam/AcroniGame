@@ -32,6 +32,7 @@ public class Movimento : MonoBehaviour
             {
                 pular = true;
                 isJumping = true;
+                AudioManager.GetInstance().Play("sfx-jump");
                 animator.SetBool("IsJumping", true);
             }
         }

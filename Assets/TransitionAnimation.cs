@@ -24,10 +24,14 @@ public class TransitionAnimation : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;  
     }
 
+    public static bool HasToEnter = false;
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name != "bomb-loading_scene" && scene.name != "Menu_principal")
+        if (scene.name != "bomb-loading_scene" && scene.name != "Menu_principal" && !HasToEnter)
+        {
             transitionAnim.SetTrigger("start");
+        }
     }
     
     public void EndAnim()

@@ -35,6 +35,7 @@ public class Store : MonoBehaviour
 
     public void Open()
     {
+        AudioManager.GetInstance().Play("sfx-button_default");
         animator.SetTrigger("CanAnimate");
         isOpen = true;
         try

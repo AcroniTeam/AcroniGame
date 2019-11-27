@@ -695,7 +695,7 @@ MonoBehaviour:
     loop: 0
   - clip: {fileID: 8300000, guid: 48c7d6687a1bb4e449e17c83df1f4ddc, type: 3}
     source: {fileID: 0}
-    name: sfx-fim_da_fase
+    name: bgm-fim_da_fase
     volume: 1
     pitch: 1
     dimension: 0
@@ -716,7 +716,7 @@ MonoBehaviour:
     loop: 0
   - clip: {fileID: 8300000, guid: fb1771ad1853e634cbb0c3313e220f31, type: 3}
     source: {fileID: 0}
-    name: sfx-morte
+    name: bgm-morte
     volume: 1
     pitch: 1
     dimension: 0
@@ -765,7 +765,7 @@ MonoBehaviour:
     loop: 0
   - clip: {fileID: 8300000, guid: 0b11acec344d73641b1e2775c21332ba, type: 3}
     source: {fileID: 0}
-    name: sfx-loading_screen
+    name: bgm-loading_screen
     volume: 1
     pitch: 1
     dimension: 0

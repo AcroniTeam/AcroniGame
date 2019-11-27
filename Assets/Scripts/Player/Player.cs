@@ -39,7 +39,6 @@ public class Player : MonoBehaviour
         return player_currency;
     }
 
-
     public GameObject[] spawns;
     private int index_spawn = 0;
 
@@ -63,7 +62,10 @@ public class Player : MonoBehaviour
             index_spawn++;
             if (index_spawn == (spawns.Length - 1))
             {
-                GameManager.GetInstance().BuildNextScene();
+                //Final
+                AudioManager.GetInstance().Play("bgm-fim-da-fase");
+                ChangeColorScript.getInstance().Animate("black");
+                LevelCompletedMenu.GetInstance().Open();
             }
         }
         else
@@ -92,18 +94,26 @@ public class Player : MonoBehaviour
 
     public void TakeAHeart()
     {
+        int lifeCount = 3;
         for(int i = 2; i >= 0; i--)
         {
             if(lifes[i])
             {
                 lifes[i] = false;
+                lifeCount = i;
+                AudioManager.GetInstance().Play("sfx-dano");
                 break;
             }
         }
 
         if (!lifes[0])
-            GameManager.GetInstance().RebuildCurrentScene();
+        {
+            AudioManager.GetInstance().Play("bgm-morte");
+            DeathMenu.GetInstance().Open();
+            return;
+        }
 
+        LevelCompletedMenu.GetInstance().SetLifeText(lifeCount);
         FindObjectOfType<LifeManager>().SetHearts(lifes);
     }
 }
