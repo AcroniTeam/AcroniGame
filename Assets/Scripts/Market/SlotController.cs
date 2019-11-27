@@ -132,7 +132,9 @@ public class SlotController : MonoBehaviour
             {
 
                 isMoving = false;
+                isBeingHeld = false;
                 SummonItem(slot_item);
+                AudioManager.GetInstance().Play("sfx-drop");
                 rect.anchoredPosition = startPoint;
 
                 if (item_quantity.text.Equals("0"))
@@ -157,6 +159,7 @@ public class SlotController : MonoBehaviour
         {
             if(!isBeingHeld)
             {
+                AudioManager.GetInstance().Play("sfx-drag");
                 isBeingHeld = true;
                 HeldType = slotType;
             }

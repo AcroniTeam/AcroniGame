@@ -27,7 +27,8 @@ public class MenuController : MonoBehaviour
     public void OnClick()
     {
         animator.SetTrigger("CanAnimate");
-
+        AudioManager.GetInstance().Play("sfx-pause_button");
+        ChangeColorScript.getInstance().Animate("black");
         for (int i = 0; i < 3; i++)
         {
             moveButtons[i].enabled = isOpen;
@@ -50,6 +51,25 @@ public class MenuController : MonoBehaviour
         isOpen = (isOpen) ? false : true;
 
         animator.SetBool("isOpen", isOpen);
+    }
+
+    public void StopAllButtons()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            moveButtons[i].enabled = false;
+            try
+            {
+                moveButtons[i].GetComponent<AxisTouchButton>().enabled = false;
+            }
+            catch (Exception)
+            {
+                moveButtons[i].GetComponent<ButtonHandler>().Name = (isOpen) ? "Jump" : "Jum";
+            }
+        }
+        storeButton.enabled = false;
+        InventoryController.GetInventoryController().SetInteractible(false);
+        CountdownTimer.getInstance().StopTimer();
     }
 
     public void SpeedAnimation()

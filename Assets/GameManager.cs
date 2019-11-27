@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(this);
 
-
         try
         {
             playerData = IOManager.RetriveData();
@@ -78,7 +77,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        AudioManager.GetInstance().Stop("bgm-ada_theme");
+        AudioManager.GetInstance().Play("sfx-play_button");
         SceneTransition.indextoBuild = currentSceneIndex;
         StartCoroutine(SceneTransitor());
         //TransitionAnimation.getInstance().EndAnim();
@@ -122,6 +121,16 @@ public class GameManager : MonoBehaviour
 
     public void RebuildCurrentScene()
     {
-        LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneTransition.indextoBuild = currentSceneIndex;
+        StartCoroutine(SceneTransitor());
+    }
+
+    public void BuildScene(int index)
+    {
+        if (index == 0)
+            TransitionAnimation.HasToEnter = true;
+
+        SceneTransition.indextoBuild = index;
+        StartCoroutine(SceneTransitor());
     }
 }

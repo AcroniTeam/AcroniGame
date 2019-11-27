@@ -14,6 +14,7 @@ public class OnStartScene : MonoBehaviour
     {
         
     }
+
     void Start()
     {
         sceneType = SceneType;
@@ -34,11 +35,12 @@ public class OnStartScene : MonoBehaviour
 
         if (MusicName == null)
             Debug.LogError("Faltando o nome da música na cena!");
-        else if (!MusicName.Equals(AudioManager.GetInstance().GetCurrentBGM()))
+        else //if (!MusicName.Equals(AudioManager.GetInstance().GetCurrentBGM()))
         {
-            AudioManager.GetInstance().Stop(AudioManager.GetInstance().GetCurrentBGM());
             AudioManager.GetInstance().Play(MusicName);
         }
+
+        SliderController.instance.Readjust();
     }
 
     bool stop = false;
