@@ -14,4 +14,8 @@ public class MainMenuController : MonoBehaviour
         animator.SetBool("isOpen", isOpen);
     }
 
+    public void SeeCredits()
+    {
+        GameManager.GetInstance().BuildScene(6);
+    }
 }

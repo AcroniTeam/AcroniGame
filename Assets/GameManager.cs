@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
 
     public void BuildScene(int index)
     {
-        if (index == 0)
+        if (index == 1)
             TransitionAnimation.HasToEnter = true;
 
         SceneTransition.indextoBuild = index;

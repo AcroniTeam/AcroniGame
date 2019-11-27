@@ -25,15 +25,16 @@ public class TransitionAnimation : MonoBehaviour
     }
 
     public static bool HasToEnter = false;
-
+    
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name != "bomb-loading_scene" && scene.name != "Menu_principal" && !HasToEnter)
+        if ((scene.name != "bomb-loading_scene" && scene.name != "Menu_principal") || HasToEnter)
         {
             transitionAnim.SetTrigger("start");
         }
+        HasToEnter = false;
     }
-    
+
     public void EndAnim()
     {
         transitionAnim.SetTrigger("end");
