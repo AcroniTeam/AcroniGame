@@ -28,6 +28,11 @@ public class InventoryItem
         return --item_quantity;
     }
 
+    public void SetQuantity(int quantity)
+    {
+        item_quantity = quantity;
+    }
+
     public string GetName()
     {
         return reference.name;

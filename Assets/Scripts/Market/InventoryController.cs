@@ -16,7 +16,7 @@ public class InventoryController : MonoBehaviour
             if(slot.Equals(item) || slot.IsEmpty())
             {
                 slot.Fill(item);
-                if (main_slot.IsEmpty())
+                if (main_slot.IsEmpty() || main_slot.Equals(item))
                 {
                     slot.SetSelected(true);
                     main_slot.Fill(item);
@@ -30,15 +30,15 @@ public class InventoryController : MonoBehaviour
     {
         foreach(InventorySlot ins in slots)
         {
-            if (ins.item_reference == null)
-                continue;
-
-            Debug.Log("n_" + ins.name);
-            if(ins.Equals(main_slot.item_reference))
+            if (ins.GetQuantity() > 0)
             {
-                Debug.Log("q_"+ins.item_reference.GetQuantity());
-                ins.DecreaseQuantity();
-                break;
+                if (ins.Equals(main_slot.item_reference))
+                {
+                    ins.DecreaseQuantity();
+                    if (ins.GetQuantity() == 0)
+                        ins.Clear();
+                    break;
+                }
             }
         }
 
@@ -48,24 +48,39 @@ public class InventoryController : MonoBehaviour
             int i;
             for(i = 0; i < 3; i++)
             {
-                if(slots[i].GetQuantity() <= 0)
+                if(slots[i].GetQuantity() == 0)
                 {
-                    Debug.Log(slots[i].name);
                     if(slots[i+1].GetQuantity() > 0)
                     {
-                        Debug.Log(slots[i+1].name + " " + slots[i+1].item_quantity);
                         slots[i].Fill(slots[i + 1].item_reference);
                         slots[i + 1].Clear();
+                        slots[i].SetSelected(true);
                     }else if(i != 0 && slots[i-1].GetQuantity() > 0)
                     {
-                        slots[i - 1].SetSelected(slots[i].isSelected());
+                        slots[i - 1].SetSelected(true);
                         slots[i - 1].Fill(slots[i].item_reference);
                         slots[i].Clear();
+                        slots[i].SetSelected(false);
                     } 
                 }
             }
 
             main_slot.Fill(System.Array.Find(slots, slot => slot.isSelected()).item_reference);
+        }
+
+        if (slots[0].GetQuantity() <= 0)
+        {
+            slots[0].SetSelected(false);
+            main_slot.Clear();
+        }
+            
+        foreach(InventorySlot s in slots)
+        {
+            if(s.GetQuantity() == 0 || s.IsEmpty())
+            {
+                s.Clear();
+                s.SetSelected(false);
+            }
         }
     }
 

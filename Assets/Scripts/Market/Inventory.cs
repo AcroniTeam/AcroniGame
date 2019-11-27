@@ -47,6 +47,18 @@ public class Inventory
         //Debug.Log(retur);
     }
 
+    public void SetIntoItem(string name, int newQuantity)
+    {
+        foreach(InventoryItem item in inventoryItems)
+        {
+            if (item.GetName().Equals(name))
+            {
+                item.SetQuantity(0);
+                break;
+            }
+        }
+    }
+
     public int DecreseQuantityFromItem(string name)
     {
         int ret = 0;

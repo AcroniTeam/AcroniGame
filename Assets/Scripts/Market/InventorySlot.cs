@@ -16,7 +16,7 @@ public class InventorySlot : MonoBehaviour
     [HideInInspector]
     public InventoryItem item_reference;
 
-    #region SlotController Methods
+    #region InventorySlot Methods
 
     public void Fill(InventoryItem slot)
     {
@@ -27,7 +27,7 @@ public class InventorySlot : MonoBehaviour
 
         item_quantity.text = slot.GetQuantity().ToString();
         item_reference = slot;
-
+        quantity = slot.GetQuantity();
         isEmpty = false;
     }
 
@@ -36,36 +36,31 @@ public class InventorySlot : MonoBehaviour
         return isEmpty;
     }
 
+    int quantity = 0;
     public void DecreaseQuantity()
     {
-        if (item_quantity.text.Equals("0"))
-            Clear();
-        else if (Int16.Parse(item_quantity.text) > 0)
-        {
-            int i = item_reference.DecreaseQuantity();
-            if(i == 0)
-            item_quantity.text = i.ToString();
-        }
+        quantity--;
+        item_reference.DecreaseQuantity();
+        Debug.Log(quantity);
+        item_quantity.text = quantity.ToString();
     }
 
     public bool Equals(InventoryItem item)
     {
-        return item.GetName() == slot_item;
+        return (item.GetName() == slot_item);
     }
 
     public int GetQuantity()
     {
-        return Int16.Parse(item_quantity.text);
+        return quantity;
     }
-
-    static bool isBeingHeld = false;
-    static SlotType HeldType;
 
     public void Clear()
     {
+        quantity = 0;
         imageAnimator.SetBool("BeDefault", true);
         imageAnimator.SetTrigger("default");
-        item_quantity.text = "0";
+        item_quantity.text = quantity.ToString();
         isEmpty = true;
     }
 
@@ -76,7 +71,8 @@ public class InventorySlot : MonoBehaviour
 
     public void SetSelected(bool value)
     {
-        selectedImage.enabled = value;
+        if(GetQuantity() > 0)
+            selectedImage.enabled = value;
     }
 
     public bool isSelected()
@@ -90,7 +86,7 @@ public class InventorySlot : MonoBehaviour
     }
     #endregion
 
-    private void Awake()
+    private void Start()
     {
         imageAnimator = GetComponentInChildren<Animator>();
         selectedImage = Array.Find(GetComponentsInChildren<Image>(), image => image.name.Equals("SelectedItem"));

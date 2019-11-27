@@ -33,6 +33,7 @@ public class SlotController : MonoBehaviour
         
         item_quantity.text = slot.GetQuantity().ToString();
         item_reference = slot;
+        quantity = slot.GetQuantity();
 
         isEmpty = false;
     }
@@ -49,17 +50,26 @@ public class SlotController : MonoBehaviour
 
     public int GetQuantity()
     {
-        return Int16.Parse(item_quantity.text);
+        return quantity;
     }
 
     static bool isBeingHeld = false;
     static SlotType HeldType;
 
+    int quantity = 0;
     public void Clear()
     {
         imageAnimator.SetBool("BeDefault",true);
         imageAnimator.SetTrigger("default");
-        item_quantity.text = "0";
+        Player.getInstance().GetPlayerInventory().SetIntoItem(item_reference.GetName(), 0);
+        if (Mathf.Sign(quantity) == -1)
+        {
+            quantity = 0;
+            item_quantity.text = 0.ToString();
+        }else
+        {
+            item_quantity.text = quantity.ToString();
+        }
         isEmpty = true;
     }
 
@@ -86,6 +96,13 @@ public class SlotController : MonoBehaviour
         FirebaseMethods.firebaseMethods.IncrementQttItems(itemName);
         Debug.Log(itemName);
         item_quantity.text = Player.getInstance().GetPlayerInventory().DecreseQuantityFromItem(itemName).ToString();
+        quantity--;
+        if (Mathf.Sign(quantity) == -1)
+        {
+            quantity = 0;
+            item_quantity.text = 0.ToString();
+        }
+            
     }
 
     bool HasSomethingAt(Vector3 position) {
@@ -140,6 +157,7 @@ public class SlotController : MonoBehaviour
                 if (item_quantity.text.Equals("0"))
                 {
                     isMoving = false;
+                    Clear();
                     InventoryController.GetInventoryController().UpdateUI();
 
                     return;
