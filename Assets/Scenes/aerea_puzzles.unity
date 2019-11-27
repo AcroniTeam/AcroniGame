@@ -4945,14 +4945,14 @@ MonoBehaviour:
   m_YDamping: 1
   m_ZDamping: 1
   m_ScreenX: 0.20344567
-  m_ScreenY: 0.41207305
+  m_ScreenY: 0.41207302
   m_CameraDistance: 2
   m_DeadZoneWidth: 0.15
-  m_DeadZoneHeight: 0.505
+  m_DeadZoneHeight: 0.1
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 1
   m_SoftZoneWidth: 0.282
-  m_SoftZoneHeight: 0.524
+  m_SoftZoneHeight: 0.56
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 0
@@ -11405,6 +11405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1453620399}
   parallaxEffect: 0.7
+  aero: 1
 --- !u!212 &5407100960971615796
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11569,7 +11570,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5407100961164301241}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.9, y: -2.6, z: 2}
+  m_LocalPosition: {x: -4.9, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5407100962029957229}
@@ -11629,6 +11630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1453620399}
   parallaxEffect: 0.6
+  aero: 1
 --- !u!212 &5407100961205938695
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12213,6 +12215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1453620399}
   parallaxEffect: 0.3
+  aero: 1
 --- !u!212 &5407100962029957231
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12380,7 +12383,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5407100962365638898}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5407100962052730579}
@@ -12415,6 +12418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1453620399}
   parallaxEffect: 1
+  aero: 1
 --- !u!212 &5407100962365638902
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12490,7 +12494,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5407100962389401222}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5407100961267828114}
@@ -12512,6 +12516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1453620399}
   parallaxEffect: 0.8
+  aero: 1
 --- !u!212 &5407100962389401225
 SpriteRenderer:
   m_ObjectHideFlags: 0

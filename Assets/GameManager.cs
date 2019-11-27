@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     {
         return gameManager;
     }
-
+   
     public void LoadScene(string name)
     {
         SceneManager.LoadScene(name);
