@@ -1,8 +1,10 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    public static string fase;
     static Player instance;
     static Movimento player_movement;
     static Inventory player_inventory;
@@ -14,6 +16,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        fase = SceneManager.GetActiveScene().name;
         instance = this;
         player_movement = GetComponent<Movimento>();
         player_inventory = new Inventory();
@@ -46,7 +49,8 @@ public class Player : MonoBehaviour
     public void TeleportToSpawn()
     {
         transform.position = spawns[index_spawn].transform.position;
-        FirebaseMethods.firebaseMethods.getFireBaseMethodsInstance().IncrementQttPlayed("Fase Aérea");
+        fase = SceneManager.GetActiveScene().name;
+        FirebaseMethods.firebaseMethods.getFireBaseMethodsInstance().IncrementQttPlayed(fase);
     }
 
     public void ResetSpawn()

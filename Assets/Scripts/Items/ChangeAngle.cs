@@ -22,8 +22,8 @@ public class ChangeAngle : MonoBehaviour
     {
         //collision.otherCollider.enabled = true;
         //Debug.Log("liguei");
-        if (Player.getInstance().GetPlayerMovement().getIsAddingForce())
-            Player.getInstance().GetPlayerMovement().EnableAddForce();
+        //if (Player.getInstance().GetPlayerMovement().getIsAddingForce())
+        //    Player.getInstance().GetPlayerMovement().EnableAddForce();
     }
     void OnCollisionStay2D(Collision2D collision)
     {
@@ -58,7 +58,7 @@ public class ChangeAngle : MonoBehaviour
         if (collision.otherCollider is PolygonCollider2D)
         {
             if (Mathf.Abs(collision.rigidbody.velocity.y) > 8 && collision.gameObject.tag.Equals("Player"))
-                collision.rigidbody.velocity = new Vector2(collision.rigidbody.velocity.x, collision.rigidbody.velocity.y - 8);
+                collision.rigidbody.velocity = new Vector2(collision.rigidbody.velocity.x, collision.rigidbody.velocity.y - 11);
             else if (Mathf.Abs(collision.rigidbody.velocity.x) > 8 && collision.gameObject.tag.Equals("Player"))
                 collision.rigidbody.velocity = new Vector2(collision.rigidbody.velocity.x - 5, collision.rigidbody.velocity.y);
             if (collision.GetContact(0).point.x - thisCenter.x > 0.3)
@@ -79,7 +79,7 @@ public class ChangeAngle : MonoBehaviour
             if (collision.gameObject.GetComponent<Rigidbody2D>().tag.Equals("Player"))
             {
                 Debug.Log("Player");
-                Player.getInstance().GetPlayerMovement().EnableAddForce();
+                //Player.getInstance().GetPlayerMovement().EnableAddForce();
             }
         }
     }

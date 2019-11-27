@@ -113,7 +113,7 @@ public class CharacterController2D : MonoBehaviour
             else
             {
                 if(m_Rigidbody2D.velocity.x<10.0)
-                m_Rigidbody2D.AddRelativeForce(Player.getInstance().GetPlayerMovement().getMovementVector().normalized*800f*Time.deltaTime);
+                m_Rigidbody2D.AddRelativeForce(Player.getInstance().GetPlayerMovement().getMovementVector().normalized*800f*Time.fixedUnscaledDeltaTime);
             }
 
 
