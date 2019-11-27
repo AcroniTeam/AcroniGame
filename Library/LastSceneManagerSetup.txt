@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/bomba-stage.unity
+- path: Assets/Scenes/aerea_puzzles.unity
   isLoaded: 1
   isActive: 1
