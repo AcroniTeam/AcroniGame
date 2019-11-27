@@ -218,7 +218,7 @@ RectTransform:
   m_Children:
   - {fileID: 99100146}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1174,7 +1174,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507404832}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7148528, y: 0, z: -2}
+  m_LocalPosition: {x: -0.71950006, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 779632867}
@@ -1244,6 +1244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a4b3ca3997a7a4eaf4e8d5d1f9724d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fase: Fase Terrestre
   spawnsDistribution: 
   spawns:
   - {fileID: 446361043}
@@ -6508,49 +6509,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &890487398
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 890487400}
-  - component: {fileID: 890487399}
-  m_Layer: 0
-  m_Name: CountNumberDeaths
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &890487399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 890487398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d92347587844913429bafa6f04fb5703, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &890487400
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 890487398}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.035248, y: 1.1343021, z: -2.9943707}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &948860836 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8237827989914651206, guid: 843b6aed675154e4dbfe9d1872cf3a0f,
@@ -7204,7 +7162,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453620399}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.24481153, y: -0.008480072, z: -2}
+  m_LocalPosition: {x: 0.23477507, y: -0.008424282, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1438482382}
@@ -9170,16 +9128,6 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5755895553216441019, guid: b7fd39aed73d1ed4784e58c5a15e92cc,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 159
-      objectReference: {fileID: 0}
-    - target: {fileID: 5755895553216441019, guid: b7fd39aed73d1ed4784e58c5a15e92cc,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 159
-      objectReference: {fileID: 0}
     - target: {fileID: 1878947068949947881, guid: b7fd39aed73d1ed4784e58c5a15e92cc,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -9209,6 +9157,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5755895553216441019, guid: b7fd39aed73d1ed4784e58c5a15e92cc,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 159
+      objectReference: {fileID: 0}
+    - target: {fileID: 5755895553216441019, guid: b7fd39aed73d1ed4784e58c5a15e92cc,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 159
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7fd39aed73d1ed4784e58c5a15e92cc, type: 3}

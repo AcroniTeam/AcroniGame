@@ -3910,6 +3910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a4b3ca3997a7a4eaf4e8d5d1f9724d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fase: Fase Terrestre
   spawnsDistribution: 
   spawns:
   - {fileID: 446361043}
@@ -10962,6 +10963,11 @@ PrefabInstance:
       propertyPath: velocidade
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 5785359161049287074, guid: 59b07c7b7b94fe9499cbf0749a004acf,
+        type: 3}
+      propertyPath: m_MovementSmoothing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5785359161049287085, guid: 59b07c7b7b94fe9499cbf0749a004acf,
         type: 3}
       propertyPath: m_Material
@@ -11002,11 +11008,6 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: e4ae95447a86b874396f97443e5af407, type: 2}
-    - target: {fileID: 5785359161049287074, guid: 59b07c7b7b94fe9499cbf0749a004acf,
-        type: 3}
-      propertyPath: m_MovementSmoothing
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59b07c7b7b94fe9499cbf0749a004acf, type: 3}
 --- !u!1001 &775385528
@@ -11198,6 +11199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d92347587844913429bafa6f04fb5703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fase: Fase Terrestre
 --- !u!4 &890487400
 Transform:
   m_ObjectHideFlags: 0

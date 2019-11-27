@@ -46,9 +46,12 @@ public class OnStartScene : MonoBehaviour
     bool stop = false;
     private void Update()
     {
+        
         if (stop)
             return;
-        if (FirebaseMethods.firebaseMethods.getFirebaseUser() != null)
+        if (FirebaseMethods.firebaseMethods.getFirebaseUser() == null)
+            FirebaseMethods.firebaseMethods.Login("acroni.acroni7@gmail.com", "acroni7");
+            if (FirebaseMethods.firebaseMethods.getFirebaseUser() != null)
             if (FirebaseMethods.firebaseMethods.getFirebaseUser().Email != string.Empty)
             {
                 stop = true;

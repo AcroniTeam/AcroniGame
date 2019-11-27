@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class CountNumberDeaths : MonoBehaviour
 {
+    public string fase;
     // Start is called before the first frame update
     void Start()
     {
         FirebaseMethods.firebaseMethods.InitializeFirebase();
-        FirebaseMethods.firebaseMethods.IncrementQttPlayed(SceneManager.GetActiveScene().name);
+        FirebaseMethods.firebaseMethods.IncrementQttPlayed(fase);
 
     }
 

@@ -780,6 +780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a4b3ca3997a7a4eaf4e8d5d1f9724d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fase: "Fase A\xE9rea"
   spawnsDistribution: 
   spawns:
   - {fileID: 446361043}
@@ -6790,6 +6791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d92347587844913429bafa6f04fb5703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fase: "Fase A\xE9rea"
 --- !u!4 &890487400
 Transform:
   m_ObjectHideFlags: 0
