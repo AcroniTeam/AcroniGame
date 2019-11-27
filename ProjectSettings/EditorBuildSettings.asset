@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu_principal.unity
     guid: f65a2682ebd2b194cb0b8b39e32e4802
   - enabled: 1
+    path: Assets/Scenes/aerea_puzzles.unity
+    guid: 3a7ac0557ec9eb049bf318ebf63c1814
+  - enabled: 1
     path: Assets/Scenes/special_block-stage.unity
     guid: 83558cc7b9c321a4ba1f1cd32c0b7c08
   - enabled: 1
@@ -23,9 +26,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/casa_da_ada.unity
     guid: 4a2f31fb1f1767244b0b731000eb0422
-  - enabled: 1
-    path: Assets/Scenes/aerea_puzzles.unity
-    guid: 3a7ac0557ec9eb049bf318ebf63c1814
   - enabled: 0
     path: Assets/Scenes/nova_aerea.unity
     guid: d0ec6e91e8145ef4bbf46a7f42338b72

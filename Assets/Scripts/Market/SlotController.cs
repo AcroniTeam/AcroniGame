@@ -84,6 +84,7 @@ public class SlotController : MonoBehaviour
         isBeingHeld = false;
 
         FirebaseMethods.firebaseMethods.IncrementQttItems(itemName);
+        Debug.Log(itemName);
         item_quantity.text = Player.getInstance().GetPlayerInventory().DecreseQuantityFromItem(itemName).ToString();
     }
 

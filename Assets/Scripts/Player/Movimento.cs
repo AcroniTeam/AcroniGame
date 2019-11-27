@@ -46,7 +46,7 @@ public class Movimento : MonoBehaviour
     bool canMove = true;
     public Vector3 getMovementVector()
     {
-        return new Vector3(Input.GetAxis("Horizontal") * Time.deltaTime, 0.0f, Input.GetAxis("Vertical") * Time.deltaTime);
+        return new Vector3(CrossPlatformInputManager.GetAxis("Horizontal") * Time.fixedUnscaledDeltaTime, 0.0f, CrossPlatformInputManager.GetAxis("Vertical") * Time.fixedUnscaledDeltaTime);
     }
     public void EnableMovement()
     {
@@ -89,7 +89,7 @@ public class Movimento : MonoBehaviour
     bool isAddingForce = false;
     public void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag.Equals("trampoline") && !(collision.collider is PolygonCollider2D))
+        if (collision.gameObject.tag.Equals("trampoline") && (collision.collider is PolygonCollider2D))
         {
             animator.SetBool("IsJumping", true);
             Player.getInstance().GetPlayerMovement().EnableMovement();

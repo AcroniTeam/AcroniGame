@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CountNumberDeaths : MonoBehaviour
 {
@@ -8,7 +9,8 @@ public class CountNumberDeaths : MonoBehaviour
     void Start()
     {
         FirebaseMethods.firebaseMethods.InitializeFirebase();
-        FirebaseMethods.firebaseMethods.IncrementQttPlayed("Fase Aérea");
+        FirebaseMethods.firebaseMethods.IncrementQttPlayed(SceneManager.GetActiveScene().name);
+
     }
 
 

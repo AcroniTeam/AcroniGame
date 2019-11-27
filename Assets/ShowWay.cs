@@ -9,9 +9,10 @@ public class ShowWay : MonoBehaviour
     public Tilemap tileMap;
     void OnTriggerEnter2D(Collider2D collider2D)
     {
-        tileMap.SetTile(new Vector3Int(18, -8, 0), tile);
-        tileMap.SetTile(new Vector3Int(23, -7, 0), tile);
-        tileMap.SetTile(new Vector3Int(27, -6, 0), tile);
-        tileMap.SetTile(new Vector3Int(28, -4, 0), tile);
+        if (collider2D.gameObject.tag.Equals("Player"))
+        {
+            tileMap.SetTile(new Vector3Int(25, -6, 0), tile);
+            tileMap.SetTile(new Vector3Int(27, -4, 0), tile);
+        }
     }
 }
