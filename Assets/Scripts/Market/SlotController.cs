@@ -11,7 +11,7 @@ public class SlotController : MonoBehaviour
     public BoxCollider2D interactible_box;
     public BoxCollider2D box_checktrigger;
 
-    public SlotType slotType;    
+    public SlotType slotType;
     public RectTransform rect;
 
     string slot_item;
@@ -30,7 +30,7 @@ public class SlotController : MonoBehaviour
 
         imageAnimator.SetBool("BeDefault", false);
         imageAnimator.SetTrigger(slot_item);
-        
+
         item_quantity.text = slot.GetQuantity().ToString();
         item_reference = slot;
         quantity = slot.GetQuantity();
@@ -59,14 +59,15 @@ public class SlotController : MonoBehaviour
     int quantity = 0;
     public void Clear()
     {
-        imageAnimator.SetBool("BeDefault",true);
+        imageAnimator.SetBool("BeDefault", true);
         imageAnimator.SetTrigger("default");
         Player.getInstance().GetPlayerInventory().SetIntoItem(item_reference.GetName(), 0);
         if (Mathf.Sign(quantity) == -1)
         {
             quantity = 0;
             item_quantity.text = 0.ToString();
-        }else
+        }
+        else
         {
             item_quantity.text = quantity.ToString();
         }
@@ -87,7 +88,7 @@ public class SlotController : MonoBehaviour
                 SpecialBlockTilemap.GetSpecialBlockTilemap().GetTilemap().RefreshAllTiles();
                 break;
             default:
-                Instantiate(ItemFactory.GetFactory().ProduceItem(itemName), p_position + new Vector3(0,0,2) , Quaternion.identity);
+                Instantiate(ItemFactory.GetFactory().ProduceItem(itemName), p_position + new Vector3(0, 0, 2), Quaternion.identity);
                 break;
         }
 
@@ -102,15 +103,19 @@ public class SlotController : MonoBehaviour
             quantity = 0;
             item_quantity.text = 0.ToString();
         }
-            
+
     }
 
-    bool HasSomethingAt(Vector3 position) {
+    bool HasSomethingAt(Vector3 position)
+    {
         foreach (Tilemap tp in FindObjectsOfType<Tilemap>())
         {
-            if (tp.HasTile(new Vector3Int(Mathf.FloorToInt(position.x), Mathf.FloorToInt(position.y), 0)))
+            if (tp.name.Equals("Plataform") || tp.name.Equals("SpecialBlocks"))
             {
-                return true;
+                if (tp.HasTile(new Vector3Int(Mathf.FloorToInt(position.x), Mathf.FloorToInt(position.y), 0)))
+                {
+                    return true;
+                }
             }
         }
 
@@ -122,7 +127,8 @@ public class SlotController : MonoBehaviour
         return false;
     }
 
-    public void SetEnabled(bool enabled) {
+    public void SetEnabled(bool enabled)
+    {
         isEnabled = enabled;
     }
     #endregion
@@ -140,8 +146,11 @@ public class SlotController : MonoBehaviour
         if (!isEnabled)
             return;
 
-        if(item_quantity.text.Equals("0"))
+        if (item_quantity.text.Equals("0") || quantity <= 0)
+        {
+            Clear();
             return;
+        }
 
         if (Input.touchCount == 0 || (Input.touchCount > 1 && Input.GetTouch(1).phase.Equals(TouchPhase.Ended)))
         {
@@ -175,7 +184,7 @@ public class SlotController : MonoBehaviour
 
         if (interactible_box.OverlapPoint(position) || isMoving)
         {
-            if(!isBeingHeld)
+            if (!isBeingHeld)
             {
                 AudioManager.GetInstance().Play("sfx-drag");
                 isBeingHeld = true;
@@ -190,7 +199,7 @@ public class SlotController : MonoBehaviour
             rect.position = Position;
         }
     }
-    
+
     #endregion
 }
 

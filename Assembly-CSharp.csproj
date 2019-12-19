@@ -79,8 +79,6 @@
      <Compile Include="Assets\Scripts\Canvas\MainMenuController.cs" />
      <Compile Include="Assets\Scripts\Canvas\MenuController.cs" />
      <Compile Include="Assets\Scripts\Canvas\RestartGame.cs" />
-     <Compile Include="Assets\Scripts\ConditionalHideAttribute.cs" />
-     <Compile Include="Assets\Scripts\ConditionalHidePropertyDrawer.cs" />
      <Compile Include="Assets\Scripts\Enviroment\BirdScript.cs" />
      <Compile Include="Assets\Scripts\Enviroment\Coin.cs" />
      <Compile Include="Assets\Scripts\Items\Bomba.cs" />

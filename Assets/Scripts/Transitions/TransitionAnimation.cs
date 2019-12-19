@@ -28,7 +28,7 @@ public class TransitionAnimation : MonoBehaviour
     
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if ((scene.name != "bomb-loading_scene" && scene.name != "Menu_principal") || HasToEnter)
+        if ((scene.name != "bomb-loading_scene"))// && scene.name != "Menu_principal") || HasToEnter)
         {
             transitionAnim.SetTrigger("start");
         }

@@ -71,7 +71,7 @@ public class InventorySlot : MonoBehaviour
 
     public void SetSelected(bool value)
     {
-        if(GetQuantity() > 0)
+        if (GetQuantity() > 0)
             selectedImage.enabled = value;
     }
 
@@ -92,5 +92,14 @@ public class InventorySlot : MonoBehaviour
         selectedImage = Array.Find(GetComponentsInChildren<Image>(), image => image.name.Equals("SelectedItem"));
         item_quantity = GetComponentInChildren<TextMeshProUGUI>();
         selectedImage.enabled = false;
+    }
+
+    private void Update()
+    {
+        if (quantity <= 0)
+        {
+            Clear();
+            return;
+        }
     }
 }

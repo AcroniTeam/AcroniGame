@@ -133,4 +133,5 @@ public class GameManager : MonoBehaviour
         SceneTransition.indextoBuild = index;
         StartCoroutine(SceneTransitor());
     }
+
 }

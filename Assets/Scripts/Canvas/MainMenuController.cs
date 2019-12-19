@@ -16,6 +16,6 @@ public class MainMenuController : MonoBehaviour
 
     public void SeeCredits()
     {
-        GameManager.GetInstance().BuildScene(6);
+        GameManager.GetInstance().BuildScene(7);
     }
 }

@@ -6,9 +6,8 @@ public class BirdScript : MonoBehaviour
     public Animator anim;
     [Header("Bird Configuration")]
     public bool notRandomizedBird;
-    [ConditionalHide("notRandomizedBird",true)]
     public BirdColor birdColor = BirdColor.BLACK;
-    [ConditionalHide("notRandomizedBird",true)]
+   
     public bool FlyingBird = false;
 
     void Start()
